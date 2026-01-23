@@ -1,0 +1,149 @@
+#+TITLE: Vim / Neovim — makra i rejestry (ściąga decyzyjna)
+#+STARTUP: showall
+
+Makra = nagrywanie klawiszy
+Rejestry = schowki (tekstu i makr)
+
+Bez pluginów. Zawsze dostępne.
+
+* MAKRA — gdy musisz zrobić to samo wiele razy
+
+** Chcesz powtórzyć tę samą edycję na wielu liniach?
+
+* Nagraj makro
+
+W trybie NORMAL:
+
+#+begin_src text
+qa
+#+end_src
+
+- q → start nagrywania
+- a → rejestr (dowolna litera: a–z)
+
+Wykonaj edycję na jednej linii
+
+Przykład:
+#+begin_src text
+Ipkgs.<Esc>
+#+end_src
+
+(dodaje pkgs. na początku linii)
+
+Zakończ nagrywanie:
+#+begin_src text
+q
+#+end_src
+
+Makro zapisane.
+
+* Odtwarzanie
+
+#+begin_src text
+@a
+#+end_src
+
+- @ → odtwórz
+- a → z rejestru a
+
+* Powtarzanie
+
+#+begin_src text
+@@
+#+end_src
+→ powtórz ostatnie makro
+
+#+begin_src text
+10@a
+#+end_src
+→ wykonaj makro 10 razy
+
+* Przykład praktyczny (NixOS / pkgs)
+
+Masz:
+#+begin_src text
+foo = bar;
+baz = qux;
+test = ok;
+#+end_src
+
+Chcesz:
+#+begin_src text
+pkgs.foo = bar;
+pkgs.baz = qux;
+pkgs.test = ok;
+#+end_src
+
+Sekwencja:
+#+begin_src text
+qa
+Ipkgs.<Esc>
+q
+3@a
+#+end_src
+
+* REJESTRY — gdzie Vim trzyma tekst i makra
+
+** Podstawowe rejestry
+
+| Rejestr | Znaczenie                     |
+|---------+-------------------------------|
+| "       | domyślny                      |
+| a–z     | ręczne (makra, tekst)         |
+| 0       | ostatnie yank                 |
+| +       | schowek systemowy             |
+| _       | czarna dziura (discard)       |
+
+* Yank / delete do konkretnego rejestru
+
+#+begin_src vim
+"ayw
+#+end_src
+→ yank słowo do rejestru a
+
+#+begin_src vim
+"_dd
+#+end_src
+→ usuń linię bez psucia schowka
+
+* Wklejanie z rejestru
+
+#+begin_src vim
+"ap
+#+end_src
+→ wklej zawartość rejestru a
+
+* Podgląd rejestrów
+
+#+begin_src vim
+:registers
+#+end_src
+
+albo krócej:
+#+begin_src vim
+:reg
+#+end_src
+
+* Makra + rejestry = to samo
+
+- makro w a = zawartość rejestru a
+- możesz:
+  - podejrzeć
+  - skopiować
+  - edytować
+
+#+begin_src vim
+:reg a
+#+end_src
+
+* Kiedy NIE używać makr?
+- gdy da się użyć:
+  - Visual Block
+  - :normal
+- gdy operacja jest jednorazowa i prosta
+
+* Kiedy makra są IDEALNE?
+- szybki refaktor
+- zmiany w wielu liniach
+- „użyję raz i zapomnę”
+- brak pluginów

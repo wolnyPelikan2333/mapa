@@ -1,0 +1,78 @@
+#+TITLE: kitty — zarządzanie oknami (ściąga decyzyjna)
+#+STARTUP: showall
+
+* Jak podzielić terminal na dwa panele?
+
+** Poziomo (góra / dół)
+- Klawisz: F5
+#+begin_src conf
+map f5 launch --location=hsplit
+#+end_src
+
+** Pionowo (lewo / prawo)
+- Klawisz: F6
+#+begin_src conf
+map f6 launch --location=vsplit
+#+end_src
+
+** Automatycznie (kitty wybiera najlepszy podział)
+- Klawisz: F4
+#+begin_src conf
+map f4 launch --location=split
+#+end_src
+
+* Jak zmienić orientację podziału?
+
+** Obróć aktualny split (pion ↔ poziom)
+- Klawisz: F7
+#+begin_src conf
+map f7 layout_action rotate
+#+end_src
+
+* Jak przesunąć aktywne okno?
+
+** Przesuwanie okna między panelami
+- Klawisze: Shift + ↑ ↓ ← →
+#+begin_src conf
+map shift+up move_window up
+map shift+down move_window down
+map shift+left move_window left
+map shift+right move_window right
+#+end_src
+
+* Jak „przykleić” okno do krawędzi ekranu?
+
+** Do krawędzi aktualnego workspace
+- Klawisze: Ctrl + Shift + ↑ ↓ ← →
+#+begin_src conf
+map ctrl+shift+up layout_action move_to_screen_edge top
+map ctrl+shift+down layout_action move_to_screen_edge bottom
+map ctrl+shift+left layout_action move_to_screen_edge left
+map ctrl+shift+right layout_action move_to_screen_edge right
+#+end_src
+
+* Jak zmienić fokus (bez ruszania okien)?
+
+** Przełączanie się między panelami
+- Klawisze: Ctrl + ↑ ↓ ← →
+#+begin_src conf
+map ctrl+up neighboring_window up
+map ctrl+down neighboring_window down
+map ctrl+left neighboring_window left
+map ctrl+right neighboring_window right
+#+end_src
+
+* Jak zmienić proporcje splitu?
+
+** Aktywne okno zajmuje 80% przestrzeni
+- Klawisz: Ctrl + .
+#+begin_src conf
+map ctrl+. layout_action bias 80
+#+end_src
+
+* Notatka mentalna (ważne przy zmęczeniu)
+
+- F4 — „nie myśl, kitty zdecyduje”
+- Ctrl + strzałki — tylko fokus (bez bałaganu)
+- Shift + strzałki — realne przemieszczanie okien
+- Bias używaj rzadko, ale świadomie

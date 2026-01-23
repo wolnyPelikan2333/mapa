@@ -1,0 +1,11 @@
+#+title: Literate Nixos
+atlas/literate-nixos.org
+
+* Status
+ROZWAŻANE — NIE WDRAŻAĆ
+
+* Dlaczego temat się pojawił
+* Inspiracje (Arch / XMonad)
+* Dlaczego NixOS to inny przypadek
+* Główne ryzyka
+* Warunki, bez których temat wraca do szuflady

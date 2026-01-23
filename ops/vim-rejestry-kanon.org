@@ -1,0 +1,111 @@
+#+TITLE: Neovim — rejestry (kanon operatorski)
+#+STARTUP: showall
+
+* Zasada ogólna
+"<rejestr><operacja>
+
+Jeśli nie wybierzesz rejestru, Neovim użyje domyślnego (").
+
+* " — rejestr domyślny
+
+Do codziennej pracy.
+
+** Co do niego trafia
+- y (kopiowanie)
+- d (usuwanie)
+- c (zmiana)
+
+** Kiedy używać
+- szybkie operacje „tu i teraz”
+- gdy nie obchodzi Cię, co było wcześniej
+
+** Przykłady
+- yy → kopia linii
+- dd → usuń linię (nadpisuje poprzednią zawartość)
+- p → wklej ostatnią operację
+
+⚠️ Niestabilny — każda operacja go nadpisuje.
+
+* 0 — ostatni yank (bez kasowania)
+
+Najbezpieczniejszy rejestr do kopiowania.
+
+** Co do niego trafia
+- TYLKO y
+- d / c nie ruszają tego rejestru
+
+** Kiedy używać
+- skopiowałeś coś (y)
+- potem coś usunąłeś
+- chcesz wkleić oryginalną kopię
+
+** Przykład
+- yyp → kopiuj linię
+- dd → usuń inną linię
+- "0p → wklej poprzednią kopię
+
+📌 To jest Twój „undo dla schowka”.
+
+* + — schowek systemowy
+
+Most: Neovim ↔ system.
+
+** Co do niego trafia
+- tylko jeśli jawnie go użyjesz
+
+** Kiedy używać
+- kopiujesz poza Neovim
+- wklejasz z przeglądarki / terminala
+- chcesz coś „wynieść na zewnątrz”
+
+** Przykłady
+- "+yy → kopiuj linię do systemu
+- "+p → wklej ze schowka systemowego
+
+⚠️ Nie działa, jeśli:
+#+begin_src vim
+:echo has('clipboard')
+#+end_src
+zwraca 0.
+
+* _ — czarny rejestr (kosz)
+
+Do kasowania bez konsekwencji.
+
+** Co do niego trafia
+- nic (i o to chodzi)
+
+** Kiedy używać
+- usuwasz coś technicznie
+- nie chcesz psuć żadnego schowka
+
+** Przykłady
+- "_dd → usuń linię bez śladu
+- "_d$ → usuń do końca linii
+
+📌 To jest Twój „rm -f” dla tekstu.
+
+* Jak wybrać rejestr (1 zdanie)
+
+Chcę… → Rejestr:
+- szybko pracować → "
+- nie stracić kopii → 0
+- przenieść poza nvim → +
+- usunąć bez śladu → _
+
+* Kanon pracy (rekomendacja)
+
+- kopiujesz ważne → y + 0 Cię ratuje
+- pracujesz z innymi programami → +
+- sprzątasz → _
+- reszta → "
+
+* Leader = , — kanoniczne skróty
+
+** Kopiowanie
+- ,y → kopiuj CAŁĄ LINIĘ do schowka systemowego (+)
+#+begin_src vim
+"+yy
+#+end_src
+
+- ,Y → kopiuj CAŁĄ LINIĘ do

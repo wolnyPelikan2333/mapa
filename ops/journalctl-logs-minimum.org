@@ -1,0 +1,113 @@
+#+TITLE: Logi — journalctl (minimum, które działa)
+#+STARTUP: showall
+
+Ta ściąga pokazuje, jak szybko znaleźć przyczynę problemu
+w logach systemowych NixOS — bez zalewania się szumem.
+
+* Cel
+- wiedzieć GDZIE patrzeć
+- wiedzieć JAK zawężać
+- nie zgubić się w szumie
+
+* Mentalny model
+- journalctl = jedno źródło prawdy
+- najpierw zawężaj, potem czytaj
+- szukasz błędów i momentu, nie całej historii świata
+
+* Najczęstsze: co poszło nie tak teraz
+#+begin_src bash
+journalctl -p err -b
+#+end_src
+
+- -p err → tylko błędy
+- -b → tylko bieżący boot
+
+👉 pierwszy strzał w ~80% przypadków
+
+* Poprzedni boot (po rollbacku / crashu)
+#+begin_src bash
+journalctl -p err -b -1
+#+end_src
+
+- -1 = poprzedni start systemu
+
+* Czytanie na żywo
+#+begin_src bash
+journalctl -f
+#+end_src
+
+- odpowiednik tail -f
+- dobre przy restarcie usługi
+
+* Logi konkretnej usługi
+#+begin_src bash
+journalctl -u NetworkManager
+journalctl -u sshd
+#+end_src
+
+Z bieżącego bootu:
+#+begin_src bash
+journalctl -u NetworkManager -b
+#+end_src
+
+* Od konkretnego momentu
+#+begin_src bash
+journalctl --since "10 minutes ago"
+journalctl --since "2025-12-17 10:00"
+#+end_src
+
+* Szukanie tekstu w logach
+#+begin_src bash
+journalctl | rg error
+journalctl -b | rg fail
+#+end_src
+
+👉 łącz z rg, nie czytaj ręcznie
+
+* Logi tylko z obecnego użytkownika
+#+begin_src bash
+journalctl --user
+journalctl --user -b
+#+end_src
+
+Przydatne dla:
+- sesji graficznej
+- narzędzi użytkownika
+
+* Najczęstsze wzorce problemów
+Szukaj słów:
+- failed
+- denied
+- timeout
+- not found
+- dependency failed
+
+* Typowy flow diagnostyczny
+1.
+#+begin_src bash
+journalctl -p err -b
+#+end_src
+2. Zobacz nazwę usługi
+3.
+#+begin_src bash
+journalctl -u <usługa> -b
+#+end_src
+4. Po reboocie:
+#+begin_src bash
+journalctl -p err -b -1
+#+end_src
+
+* Czego NIE robić
+- journalctl bez filtrów
+- czytanie godzinami
+- poprawianie configu bez zrozumienia błędu
+
+* Absolutne minimum
+#+begin_src bash
+journalctl -p err -b
+journalctl -u <usługa> -b
+journalctl -p err -b -1
+#+end_src
+
+To wystarczy, żeby czytać logi skutecznie,
+a nie heroicznie.

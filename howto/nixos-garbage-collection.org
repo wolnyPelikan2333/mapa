@@ -1,0 +1,66 @@
+#+TITLE: NixOS — garbage collection (/nix/store)
+#+STARTUP: showall
+
+Krótka ściąga do bezpiecznego sprzątania /nix/store
+bez psucia systemu i bez utraty możliwości rollbacku.
+
+* Co to jest garbage collection
+- Nix nigdy sam nie usuwa danych z /nix/store
+- usuwane są tylko ścieżki, do których nie prowadzą żadne rooty
+
+** Rootami są m.in.:
+- generacje systemu
+- generacje Home Managera
+- profile użytkowników
+- ręczne piny
+
+* Najbezpieczniejszy wariant (rekomendowany)
+
+** 1. Sprawdź, co zostanie usunięte (dry-run)
+#+begin_src bash
+sudo nix-collect-garbage --dry-run
+#+end_src
+
+** 2. Usuń stare generacje systemu
+#+begin_src bash
+sudo nix-collect-garbage -d
+#+end_src
+
+- usuwa stare generacje
+- zostawia aktualnie uruchomioną
+- rollback nadal działa
+
+** 3. Optymalizacja magazynu (opcjonalnie)
+#+begin_src bash
+sudo nix store optimise
+#+end_src
+
+- deduplikacja plików
+- bezpieczne
+- może zwolnić kilka GB
+
+* Home Manager
+
+** Lista generacji
+#+begin_src bash
+home-manager generations
+#+end_src
+
+** Usunięcie starych (np. starsze niż 30 dni)
+#+begin_src bash
+home-manager expire-generations "-30 days"
+#+end_src
+
+* Minimalny bezpieczny workflow
+#+begin_src bash
+sudo nix-collect-garbage --dry-run
+sudo nix-collect-garbage -d
+sudo nix store optimise
+#+end_src
+
+* Złota zasada
+
+Nigdy nie sprzątaj /nix/store, jeśli:
+- system nie jest stabilny
+- nie masz działającego rollbacku
+- nie masz commita w repo /etc/nixos

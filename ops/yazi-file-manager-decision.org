@@ -1,0 +1,155 @@
+#+TITLE: Yazi — ściąga decyzyjna (file manager w terminalu)
+#+STARTUP: showall
+
+Cel:
+Szybka orientacja i bezpieczna praca nawet przy niskiej sprawności poznawczej.
+Format: pytanie → decyzja → klawisz.
+
+* Start / wyjście
+
+** Uruchomić Yazi
+- w katalogu roboczym
+#+begin_src bash
+yazi
+#+end_src
+
+** Wyjść
+- bez kombinowania
+#+begin_src text
+q
+#+end_src
+
+* Poruszanie się
+
+** Wejść do katalogu
+- zaznaczony katalog
+#+begin_src text
+l  lub  Enter
+#+end_src
+
+** Wyjść poziom wyżej
+#+begin_src text
+h
+#+end_src
+
+** Szybko skakać po liście
+#+begin_src text
+k / j
+#+end_src
+
+** Pierwszy / ostatni element
+#+begin_src text
+gg / G
+#+end_src
+
+* Podgląd plików
+
+** Podejrzeć plik (preview)
+- po prawej stronie
+- automatycznie (jeśli włączony)
+
+** Otworzyć plik domyślną aplikacją
+#+begin_src text
+Enter
+#+end_src
+
+** Otworzyć w edytorze ($EDITOR)
+#+begin_src text
+o   → wybierz akcję (jeśli skonfigurowane)
+#+end_src
+
+* Zaznaczanie
+
+** Zaznacz jeden plik
+#+begin_src text
+Space
+#+end_src
+
+** Zaznacz wiele (ciąg)
+#+begin_src text
+v  +  j / k
+#+end_src
+
+** Odznacz wszystko
+#+begin_src text
+Esc
+#+end_src
+
+* Operacje na plikach
+
+** Kopiuj
+#+begin_src text
+y
+#+end_src
+
+** Wytnij / przenieś
+#+begin_src text
+x
+#+end_src
+
+** Wklej
+#+begin_src text
+p
+#+end_src
+
+** Usuń (UWAGA – destrukcyjne)
+#+begin_src text
+d   → potwierdzenie
+#+end_src
+
+** Zmień nazwę
+#+begin_src text
+r
+#+end_src
+
+* Wyszukiwanie i filtrowanie
+
+** Szukaj pliku po nazwie
+#+begin_src text
+/  +  tekst
+#+end_src
+
+** Czyść filtr
+#+begin_src text
+Esc
+#+end_src
+
+* Terminal i shell
+
+** Otwórz shell w tym katalogu
+#+begin_src text
+!
+#+end_src
+
+** Wykonaj jedną komendę
+#+begin_src text
+:  +  komenda
+#+end_src
+
+* Zakładki / szybkie miejsca
+
+** Dodaj zakładkę
+#+begin_src text
+m  +  litera
+#+end_src
+
+** Skocz do zakładki
+#+begin_src text
+'  +  litera
+#+end_src
+
+* Tryb awaryjny (gdy mózg się przegrzewa)
+
+- q   — wyjście zawsze działa
+- Esc — reset trybu / zaznaczeń
+- h   — cofnięcie, bezpieczne
+
+Jeśli nie wiesz co robisz → NIE używaj d.
+
+* Minimum do zapamiętania
+
+- j / k — góra / dół
+- h / l — wyjście / wejście
+- Space — zaznacz
+- y x p — kopiuj / przenieś / wklej
+- q     — wyjście

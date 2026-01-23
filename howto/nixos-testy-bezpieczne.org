@@ -1,0 +1,43 @@
+#+TITLE: NixOS — testowanie zmian bez ryzyka
+#+STARTUP: showall
+
+* Zasada nadrzędna
+Nigdy nie testujemy na /etc/nixos.
+Test = build bez switcha na kopii.
+
+* Procedura kanoniczna (zawsze ta sama)
+
+** A. Przygotuj kopię testową
+#+begin_src bash
+sudo rm -rf /tmp/nixos-test
+sudo mkdir -p /tmp/nixos-test
+sudo rsync -a /etc/nixos/ /tmp/nixos-test/
+#+end_src
+
+** B. Wstrzyknij testowaną zmianę (z LAB)
+
+Przykład: jeden plik
+#+begin_src bash
+sudo rsync -a \
+ /root/git-sterile/modules/zsh.nix \
+ /tmp/nixos-test/modules/zsh.nix
+#+end_src
+
+** C. Build BEZ aktywacji
+#+begin_src bash
+sudo nixos-rebuild build \
+ -I nixos-config=/tmp/nixos-test/nixos/configuration.nix
+#+end_src
+
+* Interpretacja
+
+- ✅ build OK → zmiana technicznie bezpieczna
+- ❌ build FAIL → poprawiasz w LAB, PROD nietknięta
+
+* Czego to NIE robi
+- nie przełącza systemu
+- nie restartuje usług
+- nie dotyka bootloadera
+
+* Model mentalny
+LAB → /tmp/nixos-test → build → (OK?) → PROD → switch

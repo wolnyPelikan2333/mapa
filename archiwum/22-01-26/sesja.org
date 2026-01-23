@@ -1,0 +1,33 @@
+#+title: Sesja 22-01-26 09:25
+
+* CO było robione:
+** Uzupełnienie ściągi Doom Emacs
+- Dodanie przełączania okien
+- Dodanie zamiany okien miejscami
+* Przerwa: 09:45
+* Powrót: 10:25
+* Co było robione:
+** Jedna reguła językowo-operacyjna
+ - To, co robi system — zapisujemy i nazywamy po angielsku.
+ - To, co robię ja (myślenie, plan, sens, decyzja) — zapisuję po polsku.
+** Dodanie angielskiego tłumaczenia w pliku doom-emacs.org
+* Przerwa: 11:07
+* Powrót: 13:08
+** Co było robione:
+*** Uruchomienie vterm
+- Wgranie cmake
+- Wgranie gnumake
+- Wgranie gcc
+- Wgranie libtool
+- Uruchomienie vterm z sukcesem
+* Przerwa: 13:37
+* Powrót: 17:03
+** Co było robione:
+ - instalacja ledger wykonana
+* Przerwa: 17:15
+* Powrót: 18:20
+- Utworzenie systemu bezpieczeństwa
+ [19:45]
+Utworzony alias `okbuild` sprawdzający flagę OK_TO_BUILD.
+Procedura snapshotu uproszczona (cd + mkdir).
+Testy: OK.

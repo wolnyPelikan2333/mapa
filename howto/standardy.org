@@ -1,0 +1,290 @@
+#+title: Standardy pracy z NixOS
+#+startup: overview
+
+* Czym jest ten standard?
+Definiuje jak pracujemy z systemem NixOS w tym repozytorium.
+Nie opisuje technologii ani narzędzi — ustala kontrakt pracy.
+
+Standardy:
+- mają pierwszeństwo przed procedurami i ściągami
+- obowiązują zawsze w strefie produkcji
+- mogą być zmieniane, jeśli przestają pomagać
+
+* Jakiego zakresu dotyczy standard?
+Dotyczy:
+- wszystkich zmian w /etc/nixos
+- konfiguracji systemu NixOS, Home Managera i powiązanych modułów
+- pracy na systemie produkcyjnym
+
+Nie dotyczy:
+- nauki i eksperymentów
+- testów składni i zachowań języka
+- katalogów i repozytoriów poza /etc/nixos
+
+Jeśli coś jest eksperymentem — nie należy do tego standardu.
+
+* Kto ponosi odpowiedzialność za zmiany?
+Osoba wykonująca zmianę odpowiada za:
+- zrozumienie co zmienia
+- zrozumienie dlaczego to zmienia
+- świadomość jak wrócić, jeśli coś pójdzie nie tak
+
+Brak pewności = brak zmiany.
+
+* Jaki jest cel tego standardu?
+- chronić system
+- chronić koncentrację
+- zmniejszać presję tempa
+
+Nie ma na celu:
+- wymuszania perfekcji
+- blokowania rozwoju
+- zastępowania myślenia
+
+* Jak ten standard ma się do innych dokumentów?
+Ma pierwszeństwo przed:
+- procedurami
+- ściągami
+- nawykami
+
+Szczegóły techniczne są poza tym standardem
+i są linkowane tam, gdzie są potrzebne.
+
+Jeśli coś jest sprzeczne:
+wygrywa standard, nie skrót myślowy.
+
+* Jakie są strefy pracy?
+Standard opiera się na twardym rozdziale stref pracy,
+aby zmniejszyć ryzyko przypadkowych błędów.
+
+* Czym jest strefa produkcji?
+Produkcja — /etc/nixos
+
+- jedyne miejsce, gdzie obowiązuje ten standard
+- zmiany wpływają na działający system
+- zakaz eksperymentów
+- każda zmiana musi być:
+  - świadoma
+  - odwracalna
+  - opisana
+
+Jeśli nie masz pełnej kontroli nad zmianą — nie jest to strefa produkcji.
+
+* Czym jest strefa dokumentacji?
+Dokumentacja — /etc/nixos/docs
+
+- opis decyzji, procedur i standardów
+- zmiany nie wpływają bezpośrednio na system
+- porządkuje wiedzę
+- zmniejsza presję pamięci
+
+Nie jest miejscem testów ani brudnych notatek.
+
+* Czym jest strefa nauki i eksperymentów?
+Poza /etc/nixos
+
+- jedyne miejsce, gdzie wolno popełniać błędy
+- wolno nie wiedzieć
+- wolno psuć i wyrzucać
+- brak switch
+- brak wpływu na system produkcyjny
+
+Jeśli coś jest nauką — musi być fizycznie poza /etc/nixos.
+
+* Jaka jest zasada nadrzędna dla stref?
+- stref nie wolno mieszać
+- nie ma „tylko na chwilę”
+- nie ma „to tylko mała zmiana”
+
+Jeśli masz wątpliwość, do której strefy należy działanie:
+traktuj je jak produkcję i zatrzymaj się.
+
+* Jaka jest nadrzędna zasada bezpieczeństwa?
+System jest ważniejszy niż tempo.
+
+Ma absolutne pierwszeństwo przed:
+- planem sesji
+- checklistami
+- procedurami
+- presją „dokończmy jeszcze to jedno”
+
+Jeśli coś jest sprzeczne z tą zasadą — zawsze ona wygrywa.
+
+* Co oznacza ta zasada w praktyce?
+- żadna zmiana nie jest pilna, jeśli:
+  - nie rozumiesz jej skutków
+  - nie potrafisz jej cofnąć
+- przerwanie pracy jest poprawnym działaniem
+- rollback to koszt, a nie strategia pracy
+
+* Jak traktować zmęczenie?
+Sygnały:
+- spadek koncentracji
+- automatyczne odruchy
+- zlewanie się instrukcji
+
+Są sygnałami STOP, nie problemem osobistym.
+
+Zatrzymanie pracy jest decyzją techniczną.
+
+* Jakie są konsekwencje tej zasady?
+Jeśli pojawia się:
+- niepewność → STOP
+- pośpiech → STOP
+- myśl „to tylko mała zmiana” → STOP
+
+Lepszy brak zmiany niż zmiana bez pełnej kontroli.
+
+* Czym jest wzorzec OPERACJA PRODUKCYJNA?
+Jeden, niezmienny wzorzec ostrzegawczy
+używany we wszystkich dokumentach produkcyjnych.
+
+Cel:
+- zatrzymanie autopilota
+- jasne rozdzielenie zakazów i dozwolonych działań
+- ujednolicenie sygnałów bezpieczeństwa
+
+* Jaki format jest dozwolony?
+Zawsze dokładnie ten układ:
+
+⚠️ OPERACJA PRODUKCYJNA
+
+⛔ NIE RÓB
+❌ …
+
+✅ RÓB
+✔️ …
+
+Zasady:
+- kolejność stała: NIE RÓB → RÓB
+- brak komentarzy w bloku
+- brak wariantów stylistycznych
+
+* Kiedy wzorzec jest obowiązkowy?
+- każda zmiana wpływająca na system
+- każda procedura z build / switch
+- sytuacje podwyższonego ryzyka lub zmęczenia
+
+Jeśli masz wątpliwość — użyj wzorca.
+
+* Kiedy wzorzec jest zabroniony?
+- w ściągach
+- w materiałach do nauki
+- w opisach narzędzi i składni
+
+Wzorzec służy bezpieczeństwu, nie straszeniu.
+
+* Jaki jest dozwolony sposób wprowadzania zmian?
+Zmiany są dozwolone wyłącznie w kontrolowanym trybie pracy.
+Celem jest przewidywalność, nie szybkość.
+
+* Jaka jest minimalna jednostka zmiany?
+- jedna zmiana = jeden zamiar
+- jeden logiczny krok
+- możliwość cofnięcia
+
+Zakazane:
+- łączenie intencji
+- poprawianie przy okazji
+- zmiany bez jasnego celu
+
+Jeśli nie da się opisać jednym zdaniem — zmiana jest za duża.
+
+* Jaka jest kolejność działań?
+1. zrozumienie co się zmienia
+2. zrozumienie dlaczego
+3. sprawdzenie jak wrócić
+4. dopiero potem wykonanie
+
+Pominięcie kroku unieważnia zmianę.
+
+* Jak traktować presję czasu?
+- presja nie jest argumentem technicznym
+- „chcę już skończyć” nie jest kryterium
+- zmęczenie nie obniża progu bezpieczeństwa
+
+Jeśli pojawia się presja — zmiana jest odkładana.
+
+* Jak zarządzać ryzykiem?
+Ryzyko jest częścią pracy.
+Celem jest jego świadome ograniczanie.
+
+* Kiedy ryzyko jest podwyższone?
+- zmiany w centralnych plikach
+- operacje wpływające na start systemu
+- długie sesje i spadek koncentracji
+
+W takich sytuacjach obowiązują ostrzejsze kryteria STOP.
+
+* Jakie sygnały wymagają STOP?
+- niepewność skutków
+- automatyczne odruchy
+- zgadywanie zachowania systemu
+
+STOP oznacza:
+- przerwę
+- zapis kontekstu
+- powrót później
+
+* Jak ryzyko wiąże się z odpowiedzialnością?
+- ignorowanie STOP zwiększa koszt błędów
+- zatrzymanie pracy jest decyzją techniczną
+- odpowiedzialność to umiejętność nie robienia zmiany
+
+* Jaka jest relacja standardów do procedur?
+Standardy:
+- mówią jak wolno pracować
+- obowiązują zawsze
+- mają pierwszeństwo
+
+Procedury:
+- mówią co zrobić
+- są podporządkowane standardom
+- nie mogą ich omijać
+
+Sprzeczna procedura jest błędna.
+
+* Jaka jest relacja standardów do ściąg?
+Ściągi:
+- pomagają w szybkich decyzjach
+- skracają przypominanie
+- nie są miejscem zasad bezpieczeństwa
+
+Nie zawierają ostrzeżeń produkcyjnych
+i nie usprawiedliwiają ryzykownych działań.
+
+* Jaka jest zasada nawigacyjna?
+- nie wiesz jak pracować → standardy
+- nie wiesz co zrobić → procedury
+- nie pamiętasz nazwy → ściągi
+
+To jedyny poprawny kierunek czytania.
+
+* Czy standard może się zmieniać?
+Tak. Jeśli przestaje pomagać, może i powinien być zmieniony.
+
+* Kiedy wolno zmieniać standard?
+- gdy blokuje zamiast chronić
+- gdy nie pasuje do sposobu pracy
+- gdy generuje więcej napięcia niż porządku
+
+Zmiana nie jest porażką.
+
+* Jak zmieniać standard?
+- świadomie
+- z opisem
+- w osobnej sesji
+
+Powód zmiany musi być zapisany:
+- co nie działało
+- dlaczego zmiana pomaga
+
+Brak powodu oznacza brak zmiany.
+
+* Czego nie robić ze standardem?
+- nie zmieniać impulsywnie
+- nie omijać „na chwilę”
+- nie dostosowywać do pojedynczego przypadku
+
+Jeśli standard przeszkadza:
+najpierw go zmień, potem działaj.

@@ -1,0 +1,23 @@
+#+TITLE: MAPA – INDEX
+#+STARTUP: overview
+
+* Dokumentacja systemowa
+- [[file:docs/nixos/rebuild.org][NixOS: rebuild / rollback]]
+- [[file:docs/nixos/boot.org][Boot / start systemu]]
+- [[file:docs/nixos/warnings.org][Ostrzeżenia NixOS]]
+
+* Praca w terminalu
+- [[file:docs/terminal/rg-fd-tree.org][rg / fd / tree]]
+- [[file:docs/terminal/find-xargs.org][find + xargs]]
+
+* Ops / operacje
+- [[file:ops/nixos/modules.org][Moduły NixOS]]
+- [[file:ops/system/recovery.org][Recovery (świat A)]]
+
+* Organizacja pracy
+- [[file:notes/PLAN.org][PLAN]]
+- [[file:notes/SESJE.org][SESJE]]
+- [[file:notes/NOTATKI.org][NOTATKI]]
+
+* Praca codzienna
+[[file:ops/doom-emacs.org][Doom Emacs - ściąga użytkowa]]

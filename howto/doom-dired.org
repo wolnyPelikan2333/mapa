@@ -1,0 +1,112 @@
+#+title: Doom Dired
+* 🗂️ Doom Emacs – Dired & pliki (ściąga minimum)
+** 🧭 Wejście i nawigacja
+SPC f f     → znajdź plik / katalog (fd)
+RET         → wejdź do katalogu / otwórz plik
+
+Zasada:
+- nie „cd”, tylko wchodzę
+
+** 📌 Zaznaczanie (najważniejsze!)
+m           → zaznacz plik / katalog
+t           → odwróć zaznaczenie (często = zaznacz wszystko)
+u           → odznacz
+
+Zasada:
+- najpierw zaznaczam, potem działam
+
+** ✂️ Operacje na plikach (mv / cp / rm / mkdir)
+R           → rename / move
+C           → copy
+D           → delete (z potwierdzeniem)
++           → mkdir
+C-x C-f     → find file (nowy plik)
+
+Zasada:
+- operuję na zaznaczeniach, nie na ścieżkach
+
+** 🔎 Szukanie (rg / fd)
+SPC s g     → ripgrep (rg)
+SPC f f     → fd (pliki / katalogi)
+
+Wyniki = bufor
+→ można wchodzić, poprawiać, iterować
+
+** 💻 Terminal (bez wychodzenia z Doom)
+SPC o t     → terminal w bieżącym kontekście
+
+
+Używaj tylko gdy:
+- czegoś nie da się w Dired
+- albo szybki jednorazowy shell
+
+** 🏠 Powrót do „startu” (orientacja)
+SPC . — projekt (root)
+SPC .       → otwórz katalog projektu (root)
+
+Używaj gdy:
+- „nie wiem gdzie jestem”
+- pliki „rozjechały się” po buforach
+- chcesz wrócić do bezpiecznego punktu
+
+Zasada:
+- zgubiłem się → SPC .
+* 🗂️ Dired – minimalny schemat operacji (z opisem)
+** 1️⃣ Wejście
+SPC f f
+
+Znaczenie:
+→ znajdź katalog lub plik (fd)
+→ to jest zawsze początek
+
+** 2️⃣ Wejście do katalogu
+RET
+
+Znaczenie:
+→ wchodzisz do katalogu
+→ lista plików = bufor Direda
+
+** 3️⃣ Wybór (zaznaczanie)
+m    → zaznacz pod kursorem
+t    → odwróć zaznaczenie (często = zaznacz wszystko)
+u    → odznacz
+
+Znaczenie:
+→ decydujesz, na czym będziesz pracować
+→ jeszcze nic nie robisz
+
+** 4️⃣ Operacja
+R    → przenieś / zmień nazwę (mv)
+C    → skopiuj (cp)
+D    → usuń (rm)
+SHIFT +    → utwórz katalog (mkdir)
+
+Znaczenie:
+→ działanie wykonuje się na zaznaczonych elementach
+→ nie wpisujesz ścieżek „na ślepo”
+
+**5️⃣ Potwierdzenie
+RET / y
+
+Znaczenie:
+→ Emacs pyta: „czy na pewno?”
+→ masz chwilę na sprawdzenie wzrokiem
+
+**6️⃣ Wyjście / przerwanie
+C-g
+
+Znaczenie:
+→ stop
+→ nic się nie wykona
+
+** 🧠 Jedno zdanie, które spina wszystko
+
+Najpierw wybór, potem akcja.
+Jeśli nie jesteś pewien — przerwij.
+
+** 📌 Schemat w jednej linijce (do zapamiętania)
+SPC f f → RET → m / t → R C D + → RET
+
+Z opisem w głowie:
+
+znajdź → wejdź → wybierz → zrób → potwierdź

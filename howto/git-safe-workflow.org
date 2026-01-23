@@ -1,0 +1,123 @@
+#+TITLE: Git — safe workflow (bezpieczna praca)
+#+STARTUP: showall
+
+Ten dokument opisuje najprostszy i najbezpieczniejszy workflow Git
+do pracy z konfiguracją systemu (np. /etc/nixos).
+
+* Cel
+- nigdy nie stracić działającej konfiguracji
+- zawsze wiedzieć co i kiedy zostało zmienione
+- mieć możliwość szybkiego powrotu do stabilnego stanu
+
+* Zasady podstawowe
+1. Jedna logiczna zmiana = jeden commit
+2. Commitujemy często, nawet małe kroki
+3. Commit message musi mówić CO i DLACZEGO
+4. Zanim zbudujesz system — sprawdź status repo
+5. Repozytorium traktujemy jak dziennik pokładowy
+
+* Minimalny cykl pracy
+
+** 1. Sprawdź status
+#+begin_src bash
+git status
+#+end_src
+
+- clean → OK, możemy działać
+- dirty → wiesz, że są lokalne zmiany
+
+** 2. Edytuj pliki
+- edytuj świadomie
+- najlepiej jeden temat naraz
+
+** 3. Sprawdź różnice
+#+begin_src bash
+git diff
+#+end_src
+
+Zadaj sobie pytania:
+- czy rozumiem każdą linijkę?
+- czy to jest dokładnie to, co chciałem zmienić?
+
+Jeśli nie → popraw zanim pójdziesz dalej.
+
+** 4. Dodaj zmiany
+#+begin_src bash
+git add <plik>
+#+end_src
+
+Lub świadomie wszystko:
+#+begin_src bash
+git add .
+#+end_src
+
+** 5. Commit (checkpoint)
+#+begin_src bash
+git commit -m "krótki, opisowy komunikat"
+#+end_src
+
+Dobre przykłady:
+- enable wezterm module
+- add rollback cheat sheet
+- refactor zsh aliases – no behavior change
+
+Złe przykłady:
+- update
+- fix
+- changes
+
+** 6. Build / test (opcjonalnie)
+
+Dopiero po commicie:
+#+begin_src bash
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+#+end_src
+
+Dlaczego:
+- commit = punkt powrotu
+- build może się nie udać, repo jest bezpieczne
+
+** 7. Push (backup zdalny)
+#+begin_src bash
+git push
+#+end_src
+
+Zasady:
+- push przynajmniej raz dziennie
+- po większym checkpointcie — od razu
+
+* Złota zasada
+Jeśli boisz się commita — to znak, że powinien być mniejszy,
+a nie że nie powinno go być.
+
+* Typowe scenariusze ratunkowe
+
+** Cofnięcie się do ostatniego commita
+#+begin_src bash
+git restore .
+#+end_src
+⚠️ Usuwa niezapisane zmiany lokalne.
+
+** Sprawdzenie historii
+#+begin_src bash
+git log --oneline --decorate --graph
+#+end_src
+
+** Eksperyment
+- zrób commit: experiment: X
+- testuj
+- jeśli nie wyszło → git reset / rollback w NixOS
+
+Eksperyment bez commita = brak siatki bezpieczeństwa.
+
+* Mentalny model
+- Git ≠ przeszkoda
+- Git = ubezpieczenie
+- Każdy commit to checkpoint w grze 🎮
+
+* Minimum, którego pilnujemy
+- git status przed buildem
+- commit zanim coś może się zepsuć
+- push zanim zamkniesz dzień
+
+Jeśli trzymasz się tego pliku — trudno zrobić sobie krzywdę.

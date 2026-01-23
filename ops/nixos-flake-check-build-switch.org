@@ -1,0 +1,73 @@
+#+TITLE: NixOS — flake check vs build vs switch
+#+STARTUP: showall
+
+Ta ściąga odpowiada na jedno pytanie:
+co uruchomić w danym momencie i DLACZEGO.
+
+* Czy ta konfiguracja w ogóle ma sens? (NIC nie zmieniaj)
+
+** Użyj
+#+begin_src bash
+nix flake check /etc/nixos
+#+end_src
+
+** Co robi
+- sprawdza składnię i evaluację
+- wykrywa błędy logiczne w .nix
+- NIC nie buduje
+- NIC nie zmienia w systemie
+
+** Kiedy
+- podczas pisania
+- jako pierwszy krok
+- z watch-nix
+
+* Czy ten system DA SIĘ ZBUDOWAĆ? (bez aktywacji)
+
+** Użyj
+#+begin_src bash
+sudo nixos-rebuild build --flake /etc/nixos#desktop
+#+end_src
+
+** Co robi
+- buduje cały system
+- tworzy wynik w /nix/store
+- NIE aktywuje
+- NIE zmienia bootu
+- NIE restartuje usług
+
+** Kiedy
+- po większych zmianach
+- gdy boisz się switch
+- jako „suchy bieg”
+
+* Chcę, żeby to było MOIM systemem (realna zmiana)
+
+** Użyj
+#+begin_src bash
+sudo nixos-rebuild switch --flake /etc/nixos#desktop
+#+end_src
+
+** Co robi
+- buduje system
+- AKTYWUJE konfigurację
+- restartuje usługi
+- zapisuje nową generację
+- wpływa na boot
+
+U mnie standardowo przez:
+- ns "commit message"
+
+* Najprostsza mapa decyzyjna
+
+#+begin_src text
+piszę → flake check
+↓
+jest OK → (opcjonalnie) build
+↓
+jest OK → switch
+#+end_src
+
+flake check → sprawdzam
+build       → upewniam się
+switch      → zatwierdzam

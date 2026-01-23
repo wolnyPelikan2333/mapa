@@ -1,0 +1,87 @@
+#+title: Zamykanie sesji
+#+startup: showall
+
+* Rola pliku
+Ten plik opisuje JEDEN, stały rytuał zamykania sesji pracy.
+Jego celem jest domknięcie pętli, przeniesienie tylko trwałych informacji
+i przygotowanie czystego wejścia do kolejnej sesji.
+Rytuał ma działać także przy zmęczeniu i niskich zasobach.
+
+* Kiedy stosować rytuał
+- zawsze przed zakończeniem pracy
+- zawsze przed dłuższą przerwą
+- zawsze gdy czujesz spadek kontroli lub koncentracji
+
+* 1. Zatrzymaj działanie
+- przestań edytować kod lub pliki
+- otwórz [[file:AKTYWNA.org][AKTYWNA.org]]
+- nie wykonuj już żadnych zmian technicznych
+
+* 2. Domknij metadane sesji (AKTYWNA.org)
+Uzupełnij fakty:
+- godzina zamknięcia
+- (jeśli było) powód przerwania
+- (jeśli dotyczy) przewidywana data i godzina wznowienia
+
+Bez opisów. Same fakty.
+
+* 3. Usuń treści tymczasowe
+W AKTYWNA.org:
+- skreśl lub usuń:
+  - notatki robocze
+  - ślepe uliczki
+  - myśli, które nie mają dalszych konsekwencji
+
+Zostają tylko rzeczy, które MUSZĄ opuścić tę sesję.
+
+* 4. Przenieś trwałe informacje do SESJE.org
+Otwórz [[file:SESJE.org][SESJE.org]] i dodaj JEDEN wpis:
+
+** DD-MM-YYYY HH:MM
+- co było robione:
+- efekt:
+- decyzje:
+- powody wykonania prac:
+- status: [zrobione / w toku / odłożone]
+
+Jeśli informacja nie pasuje do tych pól — nie przenoś jej.
+
+* 5. Zaktualizuj plany (jeśli to konieczne)
+W SESJE.org:
+- dodaj tylko to, co realnie wynika z tej sesji
+- wybierz kategorię:
+  - Małe
+  - Średnie
+  - Duże
+- oznacz zużycie zasobów:
+  - małe / średnie / duże / gigantyczne
+
+Nie planuj „na zapas”.
+
+* 6. Uprość DASHBOARD
+Otwórz [[file:DASHBOARD.org][DASHBOARD.org]] i:
+- usuń rzeczy zrobione
+- usuń rzeczy nieaktualne
+- zostaw jedno realne wejście na następną sesję
+
+Dashboard ma prowadzić do działania, nie przechowywać historii.
+
+* 7. Zamknij AKTYWNA
+Na koniec zdecyduj:
+- jeśli treść pomoże przy wznowieniu → zostaw
+- jeśli nie pomoże → usuń
+
+AKTYWNA.org nie jest archiwum.
+Po sesji ma być lekka lub pusta.
+
+* Zasada nadrzędna
+Jeśli wahasz się, czy coś przenieść — NIE przenoś.
+
+Brak wpisu jest lepszy niż szum.
+Pamięć ma być lekka, jednoznaczna i wiarygodna.
+
+* Efekt poprawnie wykonanego rytuału
+- brak dublowania informacji
+- jasny punkt startu następnej sesji
+- brak „wiszących” wątków w głowie
+- spójność między AKTYWNA / SESJE / DASHBOARD

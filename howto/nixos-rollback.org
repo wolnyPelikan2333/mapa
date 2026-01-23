@@ -1,0 +1,68 @@
+#+TITLE: NixOS — rollback (ściąga ratunkowa)
+#+STARTUP: showall
+
+Ta ściąga opisuje jak bezpiecznie cofnąć się do działającego stanu w NixOS.
+Traktuj ją jak procedurę ratunkową, a nie coś do codziennego klikania.
+
+* Cel
+- nie panikować
+- wiedzieć dokładnie co zrobić
+- zawsze wrócić do działającego systemu
+
+* Mentalny model
+- Git cofa konfigurację
+- NixOS cofa zbudowany system
+
+Najbezpieczniej:
+Git → rebuild → reboot (jeśli trzeba)
+
+* Rollback najszybszy (GRUB)
+
+** Gdy system się NIE uruchamia poprawnie
+1. Uruchom komputer
+2. W GRUB wybierz:
+   - NixOS – previous generation
+3. Zaloguj się
+
+To:
+- nie zmienia plików w /etc/nixos
+- uruchamia poprzedni, działający system
+
+* Rollback systemu (działający shell)
+
+** Sprawdzenie generacji
+#+begin_src bash
+sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+#+end_src
+
+** Cofnięcie do poprzedniej generacji
+#+begin_src bash
+sudo nix-env --rollback --profile /nix/var/nix/profiles/system
+sudo reboot
+#+end_src
+
+* Rollback konfiguracji (Git)
+
+** Porzuć lokalne zmiany
+#+begin_src bash
+git restore .
+#+end_src
+⚠️ Usuwa niezacommitowane zmiany.
+
+** Powrót do konkretnego commita
+#+begin_src bash
+git log --oneline
+git checkout <commit>
+#+end_src
+
+Następnie:
+#+begin_src bash
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+#+end_src
+
+* Rollback po flake update
+
+** Cofnięcie tylko lockfile
+#+begin_src bash
+git checkout -- flake.lock
+sudo nixos-rebuild switch --flake /etc/nixos#n

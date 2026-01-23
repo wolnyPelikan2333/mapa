@@ -1,0 +1,18 @@
+#+title: Sesja 23-01-26 00:20
+* Instalacja i konfiguracja oprogramowania do zmiany nazw plików
+- Wdired,string-inflection,dired-toggle-case
+- Działania zakończone niepowodzeniem
+* Utworzenie skrótu klawiszowego do tworzenia plików
+* Przerwa: 05:15
+* Powrót do pracy: 18:30
+* Utworzenie pliku na kolidujące skróty C i SPC
+- Utworzenie pliku na kolidujące skróty C i SPC w ~/mapa/emacs/doom/spc-konflikty.org
+* Przerwa 19:14
+* Powrót do pracy: 20:17
+** Co było robione:
+- instalacja lsd
+
+* Dokończenie budowania katalogu backup = mapa-repo + dokumentacja + najistotniejsze konfiguracje
+** - dokończenie budowania struktury plików
+** - przeniesienie plików do odpowiednich katalogów
+** - założenie mapa-repo na Githubie

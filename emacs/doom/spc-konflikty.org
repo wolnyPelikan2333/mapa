@@ -1,0 +1,29 @@
+#+title: SPC — konflikty skrótów
+#+startup: overview
+
+* Zasada
+Ten plik to rejestr OBSERWACJI.
+Nic tu nie „naprawiam”. Tylko zapisuję fakty.
+
+* Konflikty
+
+** SPC ?
+- tryb: ?
+- komenda: ?
+- co chciałem: ?
+- co się stało: ?
+- decyzja: (zostawić / zmienić / nie wiem)
+
+** SPC d
+- tryb: dired
+- komenda: ?
+- co chciałem: ?
+- co się stało: ?
+- decyzja: nie teraz
+
+** C-s / C-S
+- tryb: global
+- komenda: isearch-forward
+- co chciałem: wyszukiwanie jak w Vimie / bez wchodzenia w isearch
+- co się stało: uruchamia się isearch (C-s)
+- decyzja: obserwacja (częsty nawyk, nie konflikt SPC, ale kolizja poznawcza)

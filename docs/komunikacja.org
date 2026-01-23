@@ -1,0 +1,62 @@
+#+TITLE: Komunikacja — gdy ENTER = WYŚLIJ
+#+STARTUP: showall
+
+* Zasada główna
+Jedna wiadomość = jedna linia.
+Rozdział robimy słowami, nie nowymi liniami.
+
+* Prefiksy (najważniejsze)
+Używaj jednego słowa + dwukropka na początku:
+
+- opis: — moje słowa / kontekst / co się dzieje
+- wklejka: — surowy tekst (kod, log, output)
+- output: — wynik polecenia
+- pytanie: — konkretne pytanie
+- uwaga: — meta / komunikacja
+
+* Przykłady
+
+- opis: coś działa, ale efekt jest inny niż oczekiwany
+- wklejka: error E475 Invalid value for argument cmd
+- output: :echo has('clipboard') -> 0
+
+* Dłuższa wklejka (w jednej linii)
+
+Jeśli musisz wkleić więcej:
+
+wklejka: --- START --- <tu cały tekst> --- END ---
+
+Ja:
+- traktuję to jako dane
+- nie interpretuję jako Twoich słów
+
+* Pojedyncze komendy / symbole
+
+Używaj backticków (też w jednej linii):
+
+`"+yy`
+`:verbose nmap r`
+
+To sygnał: symbol, nie wypowiedź.
+
+* Sygnały STOP (bez odpowiedzi)
+
+Jeśli nie chcesz reakcji, piszesz:
+
+- chwila
+- stop
+
+Ja czekam i nie zgaduję.
+
+* Jak ja to czytam
+
+- opis: → odpowiadam opisowo
+- wklejka: / output: → analizuję technicznie
+- brak prefiksu → dopytam, zamiast zgadywać
+
+* Minimalna wersja (do zapamiętania)
+
+- opis: = moje słowa
+- wklejka: = dane
+
+To wystarcza w 100%.

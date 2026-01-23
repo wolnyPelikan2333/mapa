@@ -1,0 +1,36 @@
+#+title: Sesja 24-01-26 03:00
+
+* 26-01-2026 03:xx — Stabilizacja startu Doom Emacs
+
+** Problem
+- brak pewności, czy uruchamiany jest nowy Doom czy stara instancja (client/server)
+- skróty klawiszowe sprawiały wrażenie „działających, ale udających”
+- debug utrudniony przez niejawny stan procesu
+
+** Rozwiązanie
+- przyjęto JEDEN oficjalny sposób uruchamiania Dooma:
+  - launcher (.desktop) uruchamiający:
+    =nohup emacs >/dev/null 2>&1 &=
+- usunięto ikonę emacsclient
+- brak użycia daemon/client w codziennej pracy
+
+** Sygnał prawdy (weryfikacja świeżej instancji)
+Dodane na końcu =config.el=:
+#+begin_src emacs-lisp
+(setq frame-title-format "DOOM — fresh")
+(message "DOOM STARTED FRESH at %s" (current-time-string))
+#+end_src
+
+Po starcie:
+- tytuł okna =DOOM — fresh=
+- wpis w =*Messages*= potwierdzający świeży start
+
+** Zasada operacyjna
+- zmiany w =config.el= → restart Emacsa (bez doom sync)
+- =doom sync= tylko przy zmianach w =init.el= lub =packages.el=
+
+** Status
+- start Dooma deterministyczny
+- brak niejawnych stanów
+- skróty klawiszowe wiarygodne
+- fundament stabilny

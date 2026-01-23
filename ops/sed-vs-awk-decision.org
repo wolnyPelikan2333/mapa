@@ -1,0 +1,44 @@
+#+TITLE: sed vs awk — szybka decyzja
+#+STARTUP: showall
+
+* Pytanie główne
+Mam tekst — czego użyć: sed czy awk?
+
+* Drzewko decyzyjne
+
+** Czy tylko zamieniasz / usuwasz / formatujesz tekst?
+TAK → sed
+
+** Czy liczysz / filtrujesz po warunku / operujesz na kolumnach?
+TAK → awk
+
+** Czy masz pipe (|) i chcesz „jednej linijki”?
+TAK → sed
+
+* Gotowe wzorce — sed (minimum)
+
+#+begin_src bash
+sed 's/foo/bar/g'
+sed 's/^[[:space:]]*//; s/[[:space:]]*$//'
+sed '/^#/d'
+sed -n '5,10p'
+#+end_src
+
+* Gotowe wzorce — awk (minimum)
+
+#+begin_src bash
+awk '{print $1}'
+awk '$3 > 100'
+awk '{sum+=$2} END {print sum}'
+awk -F: '{print $1}'
+#+end_src
+
+* KIEDY NIE
+- nie używaj awk do prostych zamian
+- nie używaj sed do logiki i liczenia
+- jeśli skrypt rośnie → rozbij albo użyj Pythona
+
+* TL;DR
+- tekst → sed
+- liczby / kolumny → awk
+- nie myśl → sed

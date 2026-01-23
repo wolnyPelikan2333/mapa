@@ -1,0 +1,63 @@
+#+TITLE: Vim / Neovim — absolutne podstawy (layer 0)
+#+STARTUP: showall
+
+Ta ściąga to warstwa 0.
+Gdy czegoś jest więcej → link, nie tłumaczenie.
+
+* Poruszanie się (znaki)
+
+#+begin_src text
+k  — góra
+h  — lewo
+j  — dół
+l  — prawo
+#+end_src
+
+* Tryby
+
+- NORMAL — poruszanie się i polecenia
+- INSERT — pisanie tekstu
+
+#+begin_src text
+Esc  → wróć do NORMAL
+i    → INSERT (pisanie)
+#+end_src
+
+* Usuwanie
+
+#+begin_src text
+x    — usuń znak pod kursorem
+dd   — usuń całą linię
+dw   — usuń słowo (od kursora)
+#+end_src
+
+* Kopiowanie / wklejanie
+
+#+begin_src text
+yy   — kopiuj linię
+p    — wklej po kursorze
+P    — wklej przed kursorem
+#+end_src
+
+Więcej:
+- ops/vim-makra-i-rejestry.org
+
+* Zapis / wyjście
+
+#+begin_src text
+:w    — zapisz
+:q    — wyjdź
+:wq   — zapisz i wyjdź
+:q!   — wyjdź bez zapisu
+#+end_src
+
+* Wyszukiwanie
+
+#+begin_src text
+/tekst    — szukaj w pliku
+n         — następne dopasowanie
+N         — poprzednie dopasowanie
+#+end_src
+
+Więcej:
+- ops/vim-makra-i-rejestry.org

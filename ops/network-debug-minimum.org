@@ -1,0 +1,120 @@
+#+TITLE: Network debug — minimum diagnostyki
+#+STARTUP: showall
+
+Ta ściąga daje najkrótszą możliwą ścieżkę diagnozy problemów z siecią w NixOS.
+Bez grzebania w konfiguracji i bez zgadywania.
+
+* Cel
+- sprawdzić, czy sieć działa
+- ustalić, gdzie jest problem
+- wiedzieć, kiedy to nie Twoja wina
+
+* Mentalny model
+Idziemy od dołu do góry:
+1. interfejs
+2. IP
+3. routing
+4. DNS
+5. aplikacja
+
+Zatrzymaj się, gdy znajdziesz błąd.
+
+* 1. Czy interfejs jest UP?
+#+begin_src bash
+ip link
+#+end_src
+
+Szukaj:
+- state UP
+- brak DOWN
+
+Jeśli interfejs DOWN → to nie jest problem DNS.
+
+* 2. Czy masz adres IP?
+#+begin_src bash
+ip addr
+#+end_src
+
+Szukaj:
+- adresu inet
+- nie tylko 127.0.0.1
+
+Brak IP → problem z DHCP / Wi-Fi.
+
+* 3. Czy jest routing?
+#+begin_src bash
+ip route
+#+end_src
+
+Powinno być:
+- default via ...
+
+Brak default route → brak internetu.
+
+* 4. Test po IP (bez DNS)
+#+begin_src bash
+ping -c 3 1.1.1.1
+#+end_src
+
+- FAIL → problem sieciowy / router
+- OK → przejdź dalej
+
+* 5. Test DNS
+#+begin_src bash
+ping -c 3 google.com
+#+end_src
+
+- FAIL → DNS
+- OK → sieć działa
+
+* 6. Sprawdzenie resolvera
+#+begin_src bash
+resolvectl status
+#+end_src
+
+Szukaj:
+- serwerów DNS
+- aktywnego linku
+
+* 7. NetworkManager (jeśli używany)
+#+begin_src bash
+nmcli device status
+nmcli general status
+#+end_src
+
+* 8. Wi-Fi — szybki check
+#+begin_src bash
+nmcli device wifi list
+#+end_src
+
+Jeśli nie widzi sieci → sprzęt / sterownik.
+
+* 9. Logi sieci (tylko jeśli trzeba)
+#+begin_src bash
+journalctl -u NetworkManager -b
+#+end_src
+
+Połącz z:
+#+begin_src bash
+journalctl -p err -b | rg network
+#+end_src
+
+* Typowe wnioski
+- IP OK + ping IP OK + DNS FAIL → DNS
+- brak IP → DHCP / Wi-Fi
+- wszystko OK → problem aplikacji / serwisu
+
+* Czego NIE robić
+- restartów w ciemno
+- edycji configu bez diagnozy
+- mieszania kilku problemów naraz
+
+* Absolutne minimum
+#+begin_src bash
+ip link
+ip addr
+ping 1.1.1.1
+ping google.com
+#+end_src
+
+Ta sekwencja pozwala zdiagnozować ~90% problemów siec

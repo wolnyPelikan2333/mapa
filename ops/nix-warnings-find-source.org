@@ -1,0 +1,54 @@
+#+TITLE: Nix — warningi: jak znaleźć źródło (krok po kroku)
+#+STARTUP: showall
+
+Ta ściąga odpowiada na pytanie:
+widzę warning → co dokładnie zrobić, żeby znaleźć jego źródło.
+
+* Widzę warning podczas build / switch — od czego zacząć?
+
+** Zrób
+#+begin_src bash
+nix flake check /etc/nixos
+#+end_src
+
+** Dlaczego
+- warningi często pojawiają się już na etapie evaluacji
+- tu jest najkrótszy i najczystszy output
+- jeśli warning pojawi się tutaj → nie idź dalej, tylko go namierz
+
+* Warning jest, ale NIE WIEM z jakiego pliku
+
+** Zrób
+#+begin_src bash
+nix flake check /etc/nixos --show-trace
+#+end_src
+
+** Szukaj w output
+- warning:
+- defined in
+- while evaluating
+
+To najczęściej pokaże dokładny plik .nix.
+
+* Warning pojawia się dopiero przy switch
+
+** Zrób „suchy bieg”
+#+begin_src bash
+sudo nixos-rebuild build --flake /etc/nixos#desktop
+#+end_src
+
+** Dlaczego
+- build pokazuje warningi
+- nie aktywuje systemu
+- output jest czytelniejszy niż przy switch
+
+* Warning mówi o opcji „deprecated / renamed”
+
+Przykład:
+warning: The option `X` has been renamed to `Y`
+
+** Co zrobić
+- skopiuj STARĄ nazwę opcji
+- wyszukaj ją w konfiguracji:
+#+begin_src bash
+rg "X" /etc/n

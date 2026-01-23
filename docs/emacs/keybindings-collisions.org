@@ -1,0 +1,47 @@
+#+title: Kolidujące skróty klawiszowe (obserwacje)
+#+author: michal
+#+startup: overview
+#+options: toc:nil
+
+* Dlaczego ten plik istnieje
+Ten plik służy wyłącznie do zapisywania *realnych momentów tarcia*
+w pracy z Emacsem / Doom Emacs.
+
+Nie służy do:
+- porządkowania skrótów
+- refaktoryzacji keymap
+- podejmowania decyzji
+
+Decyzje zapadają *później*, jeśli w ogóle.
+
+* Zasada pracy
+- zapisuję tylko to, co mnie faktycznie zaskoczyło
+- zapisuję po fakcie, nie w trakcie analizy
+- nie rozwiązuję problemu od razu
+- nie poprawiam wpisów historycznych
+
+Ten plik to *log*, nie *plan*.
+
+* Format pojedynczego wpisu
+Każdy wpis to jedna obserwacja.
+
+** YYYY-MM-DD HH:MM
+- Skrót:
+- Komenda:
+- Kontekst:
+- Dlaczego mnie to zaniepokoiło:
+
+* Wpisy
+
+** 2026-01-22 22:30
+- Skrót: C-s C-s
+- Komenda: string-inflection-all-cycle
+- Kontekst: zmiana nazw plików w Dired / wdired
+- Dlaczego mnie to zaniepokoiło:
+  skrót poza SPC, powtarzalny, łatwy do pomylenia w zmęczeniu
+
+** YYYY-MM-DD HH:MM
+- Skrót:
+- Komenda:
+- Kontekst:
+- Dlaczego mnie to zaniepokoiło:

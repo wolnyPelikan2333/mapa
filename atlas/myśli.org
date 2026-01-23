@@ -1,0 +1,4 @@
+#+title: Myśli
+
+Kod służy do powtarzania.
+Dokumentacja służy do rozumienia.

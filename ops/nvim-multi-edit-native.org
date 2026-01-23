@@ -1,0 +1,62 @@
+#+TITLE: Neovim — edycja wielu miejsc (NATIVE, bez multikursora)
+#+STARTUP: showall
+
+Cel:
+Zmieniać wiele miejsc szybko i bezpiecznie,
+bez pluginów i bez ryzyka „ślepych” operacji.
+
+* Zasada nadrzędna
+Najpierw wybierz ZAKRES zmiany, potem OPERACJĘ.
+Jeśli nie wiesz dokładnie, co zmieni się w każdym miejscu — przerwij.
+
+* Decyzja w 5 sekund
+| Chcę zrobić                                 | Użyj                  |
+|---------------------------------------------+-----------------------|
+| zmiana w kolumnie / na początku wielu linii | Ctrl+v (Visual Block) |
+| powtarzalna zmiana sekwencyjna              | . (repeat)            |
+| globalna zmiana z kontrolą                  | :%s///gc              |
+| ta sama sekwencja kroków                    | makro (q)             |
+| zmiana kolejnych wystąpień                  | cgn                   |
+
+* Visual Block — „kolumnowy multikursor”
+
+** Kiedy
+- listy
+- markdown
+- checkboxy
+- prefiksy / sufiksy
+
+** Kiedy NIE
+- różne długości linii
+- różny kontekst semantyczny
+
+** Jak
+#+begin_src text
+Ctrl+v      # zaznacz kolumnę
+j / k       # rozszerz zaznaczenie
+r x         # zamień znak
+#+end_src
+
+** Przykład
+#+begin_src text
+- [ ] task one
+- [ ] task two
+- [ ] task three
+#+end_src
+
+→ Ctrl+v → zaznacz [ → r x
+
+#+begin_src text
+- [x] task one
+- [x] task two
+- [x] task three
+#+end_src
+
+* . (repeat) — najbezpieczniejszy „pseudo-multikursor”
+
+** Kiedy
+- ta sama zmiana w wielu miejscach
+- zmiana logicznie powtarzalna
+
+** Jak
+#+beg

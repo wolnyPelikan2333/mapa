@@ -1,0 +1,24 @@
+#+title: Readme
+* howto/ — jak coś zrobić
+
+Pytanie: jak wykonać konkretną rzecz krok po kroku?
+
+Tu trafiają:
+
+- procedury
+
+- instrukcje
+
+- sekwencje działań
+
+Przykłady:
+
+- „jak dodać nowy host do flake”
+
+- „jak odbudować system po awarii”
+
+- „jak przenieść repo na nową maszynę”
+
+✅ kroki
+✅ kolejność
+❌ brak teorii

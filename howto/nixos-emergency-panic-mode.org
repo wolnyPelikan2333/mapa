@@ -1,0 +1,100 @@
+#+TITLE: NixOS — emergency / panic mode
+#+STARTUP: showall
+
+Ten plik jest na moment, gdy:
+- coś się zepsuło
+- jesteś zmęczony / zestresowany
+- nie chcesz myśleć, tylko wykonać poprawne kroki
+
+Czytaj od góry do dołu. Nie improwizuj.
+
+* 0. Zatrzymaj się (ważne)
+- nie edytuj plików na ślepo
+- nie rób kilku rzeczy naraz
+- jedna decyzja na raz
+
+Jeśli serce bije szybciej → przerwa 2 min.
+
+* 1. Czy system wstaje?
+
+** NIE — system nie startuje / czarny ekran
+GRUB → wybierz:
+- NixOS – previous generation
+
+Po starcie:
+- NIC nie zmieniaj
+- przejdź do punktu 4
+
+** TAK — system działa, ale coś jest popsute
+Przejdź dalej.
+
+* 2. Sprawdź repo (bez zmian)
+#+begin_src bash
+cd /etc/nixos
+git status
+#+end_src
+
+- clean → OK
+- dirty → nie commituj jeszcze
+
+* 3. Czy ostatnia zmiana to flake update?
+
+** TAK
+#+begin_src bash
+git checkout -- flake.lock
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+#+end_src
+
+Jeśli OK → STOP.
+
+** NIE / NIE WIEM
+Idź dalej.
+
+* 4. Najszybszy rollback systemu
+#+begin_src bash
+sudo nixos-rebuild switch --rollback
+#+end_src
+
+- brak zmian w plikach
+- cofnięcie do poprzedniej generacji
+
+Jeśli OK → STOP.
+
+* 5. Cofnięcie konfiguracji (Git)
+
+** Porzuć lokalne zmiany
+#+begin_src bash
+git restore .
+#+end_src
+
+⚠️ Tylko jeśli nie potrzebujesz tych zmian.
+
+Następnie:
+#+begin_src bash
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+#+end_src
+
+* 6. Nadal źle? Zamknij sesję
+- nie próbuj naprawiać wszystkiego dziś
+- zrób notatkę:
+#+begin_src text
+co nie działa?
+co robiłeś ostatnio?
+na którym kroku utknąłeś?
+#+end_src
+
+To NIE jest porażka — to ochrona systemu.
+
+* Złote zasady panic-mode
+- rollback ≠ porażka
+- działający system > idealny system
+- jutro myślisz lepiej niż dziś
+
+* Absolutne minimum
+#+begin_src text
+GRUB → previous generation
+sudo nixos-rebuild switch --rollback
+git restore .
+#+end_src
+
+Jeśli trzymasz się tego pliku — nie rozwalisz systemu.

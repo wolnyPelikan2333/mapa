@@ -1,0 +1,63 @@
+#+TITLE: PANIC INDEX — co otworzyć, gdy coś nie działa
+#+STARTUP: showall
+
+Ten plik to pierwszy punkt kontaktu w stresie.
+Nie diagnozuje. Kieruje dokładnie: gdzie wejść i co przeczytać.
+
+Czytaj tylko nagłówki. Wybierz JEDNĄ ścieżkę.
+
+* System NIE startuje / czarny ekran
+Otwórz:
+- howto/nixos-emergency-panic-mode.org
+
+Sekcja:
+- 1. Czy system wstaje? → NIE
+
+* Po nixos-rebuild switch system się sypie
+Otwórz:
+- howto/nixos-emergency-panic-mode.org
+
+Sekcja:
+- 4. Najszybszy rollback systemu
+
+* Coś przestało działać po reboot / update
+Otwórz:
+- ops/journalctl-logs-minimum.org
+
+Sekcja:
+- Najczęstsze: co poszło nie tak teraz
+
+* Po nix flake update albo rebuild po update
+Otwórz:
+- howto/nixos-emergency-panic-mode.org
+
+Sekcja:
+- Czy ostatnia zmiana to flake update?
+
+* Brak internetu / sieć nie działa
+Otwórz:
+- ops/network-debug-minimum.org
+
+Sekcja:
+- Czy interfejs jest UP?
+
+* Brakuje miejsca na dysku (/nix puchnie)
+Otwórz:
+- howto/nixos-disk-space.org
+
+Sekcja:
+- Sprawdź, ile miejsca zostało
+
+* Jestem zmęczony / nie wiem co się dzieje
+Otwórz:
+- howto/nixos-emergency-panic-mode.org
+
+Sekcja:
+- 0. Zatrzymaj się (ważne)
+
+* Zasady PANIC MODE
+- nie szukaj plików „na oko” — ścieżki są podane wyżej
+- jedna decyzja na raz
+- rollback ≠ porażka
+
+Jeśli czytasz ten plik — jesteś już w trybie bezpiecznym.

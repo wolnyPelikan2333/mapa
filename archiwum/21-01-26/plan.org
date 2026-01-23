@@ -1,0 +1,20 @@
+#+title: title: TITLE: Plan dnia 21-01-26
+
+# Reguła dnia:
+# Na koniec dnia cały katalog dnia trafia do archiwum.
+# Jeśli projekt nie jest skończony, do następnego dnia przenoszę tylko pliki projektu;
+# reszta dnia idzie do archiwum.
+
+* Dokończenie budowania katalogu backup = mapa-repo + dokumentacja + najistotniejsze konfiguracje
+** - dokończenie budowania struktury plików
+** - przeniesienie plików do odpowiednich katalogów
+** - założenie mapa-repo na Githubie
+* Instalacja ledger
+** instalacja ledger /etc/nixos/nixos/configuration.nix
+** instalacja ledger w /.config/doom/packages.el
+** ewentualne dokonfigurowanie w /.config/doom/config.el
+* Stworzyć plik practice.org
+- Odpalić na youtube film dereka taylora o org mode
+
+* Stworzenie ściągi w mapa/howto/doom-dired.org
+- dalsza nauka dired i terminala bez uźycia terminala zewnętrznego

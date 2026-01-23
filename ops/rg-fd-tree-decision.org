@@ -1,0 +1,131 @@
+#+TITLE: rg / fd / tree — szybkie decyzje
+#+STARTUP: showall
+
+Krótka ściąga do codziennej pracy w repo i configach (NixOS).
+Zasada: wiem, co chcę zrobić → biorę gotową komendę.
+
+* Szybka decyzja
+- Szukam TEKSTU w plikach → rg
+- Szukam PLIKÓW lub KATALOGÓW → fd
+- Chcę zobaczyć STRUKTURĘ katalogów → tree
+
+* rg — szukanie tekstu w plikach
+
+** Całe repo
+#+begin_src bash
+rg nixos
+#+end_src
+
+** Konkretny katalog
+#+begin_src bash
+rg flake /etc/nixos
+#+end_src
+
+** Ignorowanie wielkości liter
+#+begin_src bash
+rg -i wezterm
+#+end_src
+
+** Tylko dane rozszerzenie
+#+begin_src bash
+rg home-manager -g '*.nix'
+#+end_src
+
+** Numery linii
+#+begin_src bash
+rg -n systemd
+#+end_src
+
+** Wykluczenie katalogu
+#+begin_src bash
+rg nixos --glob '!.git'
+#+end_src
+
+* fd — szukanie plików i katalogów
+
+** Plik po nazwie
+#+begin_src bash
+fd configuration.nix
+#+end_src
+
+** Tylko katalogi
+#+begin_src bash
+fd -t d nix
+#+end_src
+
+** Tylko pliki
+#+begin_src bash
+fd -t f wezterm
+#+end_src
+
+** Po rozszerzeniu
+#+begin_src bash
+fd -e nix
+#+end_src
+
+** W konkretnym katalogu
+#+begin_src bash
+fd flake /etc/nixos
+#+end_src
+
+** Wykluczenie katalogu
+#+begin_src bash
+fd nix --exclude .git
+#+end_src
+
+* tree — orientacja w strukturze katalogów
+
+** Podstawowy widok
+#+begin_src bash
+tree
+#+end_src
+
+** Ograniczenie głębokości
+#+begin_src bash
+tree -L 2
+#+end_src
+
+** Tylko katalogi
+#+begin_src bash
+tree -d
+#+end_src
+
+** Tylko pliki .nix
+#+begin_src bash
+tree -P '*.nix'
+#+end_src
+
+** Ignorowanie .git
+#+begin_src bash
+tree -I .git
+#+end_src
+
+* Najczęstsze kombinacje
+
+** Szukaj tekstu tylko w plikach .nix
+#+begin_src bash
+rg home-manager $(fd -e nix /etc/nixos)
+#+end_src
+
+** Znajdź pliki i od razu je podejrzyj
+#+begin_src bash
+fd wezterm /etc/nixos | xargs bat
+#+end_src
+
+** Szybkie rozeznanie w modułach
+#+begin_src bash
+tree /etc/nixos/modules -L 2
+#+end_src
+
+* Minimalny workflow (NixOS)
+#+begin_src bash
+fd flake /etc/nixos
+rg nixosConfigurations /etc/nixos
+tree /etc/nixos -L 2
+#+end_src
+
+* Zasady praktyczne
+- rg = domyślny grep
+- fd respektuje .gitignore → mniej śmieci
+- tree używaj tylko do orientacji
+- jeśli coś „nie znajduje” → sprawdź ignorowane pliki

@@ -1,0 +1,87 @@
+#+TITLE: NixOS — brak miejsca na dysku (/nix)
+#+STARTUP: showall
+
+Ta ściąga opisuje bezpieczne kroki, gdy kończy się miejsce na dysku w NixOS.
+Bez paniki i bez kasowania „na ślepo”.
+
+* Cel
+- szybko odzyskać miejsce
+- nie uszkodzić systemu
+- wiedzieć, kiedy STOP
+
+* Mentalny model
+- /nix/store rośnie, bo Nix nigdy nie nadpisuje
+- stare generacje = bezpieczny bufor
+- najpierw sprawdź, potem czyść
+
+* 1. Sprawdź, ile miejsca zostało
+#+begin_src bash
+df -h /
+#+end_src
+
+Jeśli < 5–10% wolnego → działaj.
+
+* 2. Sprawdź, co trzyma miejsce
+
+** Generacje systemu
+#+begin_src bash
+sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+#+end_src
+
+** Generacje użytkownika / home-manager
+#+begin_src bash
+nix-env --list-generations
+#+end_src
+
+* 3. Bezpieczne czyszczenie (standard)
+
+** Usuń stare generacje
+#+begin_src bash
+sudo nix-collect-garbage -d
+sudo nix-collect-garbage --dry-run
+#+end_src
+
+- usuwa nieużywane generacje
+- nie dotyka aktualnego systemu
+
+** Optymalizacja store (opcjonalnie)
+#+begin_src bash
+sudo nix store optimise
+#+end_src
+
+- usuwa duplikaty
+- bezpieczne, ale nie zawsze dużo zysku
+
+* 4. Szybki ratunek (mało miejsca TERAZ)
+#+begin_src bash
+sudo nix-collect-garbage --delete-older-than 7d
+#+end_src
+
+⚠️ Zostawia tylko ostatnie 7 dni — używaj świadomie.
+
+* 5. Sprawdź efekt
+#+begin_src bash
+df -h /
+#+end_src
+
+Jeśli nadal mało miejsca → STOP i analiza.
+
+* 6. Czego NIE robić
+- rm -rf /nix/store/*
+- ręczne kasowanie plików w /nix/store
+- czyszczenie bez działającej generacji
+
+* 7. Profilaktyka
+- regularny garbage collection (np. raz na tydzień)
+- nie trzymaj setek generacji „na zapas”
+- commit + rollback zamiast strachu przed czyszczeniem
+
+* Absolutne minimum
+
+#+begin_src bash
+df -h /
+sudo nix-collect-garbage -d
+sudo nix store optimise
+#+end_src
+
+To wystarczy, żeby opanować puchnący /nix bez ryzyka.

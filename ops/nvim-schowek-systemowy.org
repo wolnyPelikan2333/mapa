@@ -1,0 +1,102 @@
+#+TITLE: Neovim — schowek systemowy (ściąga operatorska)
+#+STARTUP: showall
+
+* Zasada ogólna (kanon)
+"+<operacja>
+
+- " → wybór rejestru
+- + → schowek systemowy
+- dalej normalna komenda (y, p, yy, yw, …)
+
+Ta warstwa nie zależy od keymaps.
+Jeśli coś nie działa — wracasz tutaj.
+
+* Kopiowanie (yank)
+
+** Zaznaczony tekst
+- v → zaznacz → "+y
+
+** Cała linia
+- "+yy
+
+** Jedno słowo
+- "+yw
+
+** Do końca linii
+- "+y$
+
+* Wklejanie (paste)
+
+** Po kursorze
+- "+p
+
+** Przed kursorem
+- "+P
+
+* Ważne rozróżnienie
+
+- Ctrl + Shift + V → terminal (Neovim nie bierze udziału)
+- "+y / "+p → Neovim ↔ system
+
+Jeśli "+y nie działa → brak clipboard provider.
+
+* Usuwanie bez psucia schowka
+
+- "_d
+(np. "_dd usuwa całą linię, nie zmieniając +)
+
+* Warstwa dodatkowa — skróty jednoruchowe (Twoja konfiguracja)
+
+Ta sekcja zależy od keymaps.
+Jeśli nie działa → wróć do sekcji wyżej ("+…)
+
+Zakładamy:
+- leader = ,
+- tryb normalny
+- jeden ruch = jeden efekt
+
+* Jednoruchowe operacje
+
+** Kopiuj CAŁĄ LINIĘ do schowka systemowego
+- ,y
+#+begin_src vim
+"+yy
+#+end_src
+
+** Wklej ze schowka systemowego (po kursorze)
+- ,p
+#+begin_src vim
+"+p
+#+end_src
+
+** Wklej ze schowka systemowego (przed kursorem)
+- ,P
+#+begin_src vim
+"+P
+#+end_src
+
+** Usuń CAŁĄ LINIĘ bez psucia schowka
+- ,d
+#+begin_src vim
+"_dd
+#+end_src
+
+* Jak z tego korzystać (w praktyce)
+
+- działa skrót? → używasz skrótu
+- nie działa skrót? → używasz "+…
+- coś jest „powiedzmy że działa”? → sprawdzasz:
+#+begin_src vim
+:echo has('clipboard')
+#+end_src
+
+Ta ściąga jest odporna na konfigurację:
+- dół = wygoda
+- góra = prawda bazowa
+
+* Status
+
+- nic nie usunięte
+- nic nie nadpisane
+- masz dwie drogi do tego samego efektu
+- zawsze wiesz, gdzie jest problem, jeśli coś nie dział

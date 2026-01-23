@@ -1,0 +1,49 @@
+#+title: Zasady projektu / SSOC
+#+startup: overview
+
+* Co oznacza zasada Single Source of Configuration (SSOC)?
+- Każda kategoria ma jedno źródło prawdy
+- Duplikaty są traktowane jako błąd architektury
+
+* Jakie są przykłady SSOC w systemie?
+- NVIM config → /etc/nixos/modules/editors/nvim
+- Aliasy ZSH → /etc/nixos/modules/my-aliases.nix
+- Binarki → system (modules/packages.nix)
+- Home-Manager → tylko „klej”, nie logika
+
+* Jakie są zasady dla Neovim?
+- Binarka `nvim` instalowana tylko systemowo
+- Konfiguracja NVIM:
+  - SSOC: /etc/nixos/modules/editors/nvim
+  - podpinana przez Home-Manager (symlink)
+- Brak duplikatów `programs.neovim`
+
+* Jakie są zasady dla ZSH i aliasów?
+- Wszystkie aliasy:
+  - tylko modules/my-aliases.nix
+- zsh.nix:
+  - brak aliasów
+  - tylko enable, prompt, completion, opcje
+- Konflikt aliasów = błąd konfiguracji
+
+* Jak bezpiecznie edytować pliki z sudo?
+- /etc/nixos/**:
+  - sudo -E nvim (alias: sen)
+- Prawdziwe /etc/**:
+  - sudoedit
+- EDITOR / VISUAL:
+  - ustawiane w Home-Manager (home.sessionVariables)
+
+* Jak wygląda workflow zmian?
+- Zmiany świadome → ns "opis"
+- Debug / eksperyment → nixos-rebuild
+- Każdy etap kończy się checkpointem (git + push)
+
+* Jaka jest zasada nadrzędna projektu?
+Prostota > ilość funkcji
+Jeśli czegoś nie używam — nie istnieje
+
+* Jakie są źródła prawdy w projekcie?
+- Źródło prawdy wykonawczej (NixOS): /etc/nixos
+- Źródło prawdy decyzyjnej i historycznej: /root/git-sterile
+- Zmiany testujemy w LAB, wdrażamy jawnie do PROD

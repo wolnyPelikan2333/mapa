@@ -1,0 +1,13 @@
+  TITLE: Plan dnia 23-01-26
+
+# Reguła dnia:
+# Na koniec dnia cały katalog dnia trafia do archiwum.
+# Jeśli projekt nie jest skończony, do następnego dnia przenoszę tylko pliki projektu;
+# reszta dnia idzie do archiwum.
+
+* Dokończenie budowania katalogu backup = mapa-repo + dokumentacja + najistotniejsze konfiguracje
+** - dokończenie budowania struktury plików
+** - przeniesienie plików do odpowiednich katalogów
+** - założenie mapa-repo na Githubie
+* Konfiguracja ledger
+** ewentualne dokonfigurowanie w /.config/doom/config.el

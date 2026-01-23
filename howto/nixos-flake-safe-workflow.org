@@ -1,0 +1,133 @@
+#+TITLE: Nix Flakes — safe workflow
+#+STARTUP: showall
+
+Ten dokument opisuje bezpieczny, powtarzalny workflow pracy z Nix Flakes
+w /etc/nixos.
+
+* Cel
+- mieć zawsze działającą bazę (golden build)
+- aktualizować flakes świadomie
+- łatwo wracać do poprzedniego stanu
+
+* Zasady ogólne
+1. Flake to źródło prawdy — nie budujemy „na dziko”
+2. Zmiany w lockfile są jawne (zawsze commit)
+3. Najpierw commit → potem build
+4. Jeden commit = jeden krok logiczny
+
+* Struktura (mentalny model)
+- flake.nix → co budujemy (wejścia, wyjścia, moduły)
+- flake.lock → dokładnie z czego (konkretne wersje)
+
+flake.lock to zamrożony stan świata —
+traktuj jak artefakt binarny.
+
+* Minimalny cykl pracy
+
+** 1. Sprawdź repo
+#+begin_src bash
+git status
+#+end_src
+
+- clean → bezpiecznie
+- dirty → wiesz, co zmieniasz
+
+** 2. Zmiana konfiguracji (bez aktualizacji)
+- edytuj moduły (configuration.nix, home/*.nix, modules/*.nix)
+- nie dotykaj flake.lock
+
+#+begin_src bash
+git diff
+#+end_src
+
+Jeśli zmiana jest OK:
+#+begin_src bash
+git add <pliki>
+git commit -m "config: opis zmiany"
+#+end_src
+
+** 3. Build / test
+#+begin_src bash
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+#+end_src
+
+- sukces → jedziesz dalej
+- fail → masz commit, możesz się cofnąć
+
+* Aktualizacja flake inputs (kontrolowana)
+
+** 4. Update (świadomie)
+#+begin_src bash
+nix flake update
+#+end_src
+
+Zmienia się TYLKO flake.lock.
+
+#+begin_src bash
+git diff flake.lock
+#+end_src
+
+Zadaj sobie pytania:
+- co się zaktualizowało?
+- czy to był planowany moment?
+
+** 5. Commit lockfile
+#+begin_src bash
+git add flake.lock
+git commit -m "flake: update inputs"
+#+end_src
+
+Nigdy nie mieszaj:
+- zmian konfiguracji
+- update flake
+w jednym commicie.
+
+** 6. Build po update
+#+begin_src bash
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+#+end_src
+
+- OK → push
+- FAIL → rollback (Git lub NixOS)
+
+* Golden build (bezpieczna baza)
+
+** Definicja
+- system się buduje
+- reboot OK
+- podstawowe narzędzia działają
+
+** Zasada
+Każdy golden build = commit + push
+
+** Tag (opcjonalnie)
+#+begin_src bash
+git tag golden-$(date +%Y-%m-%d)
+git push --tags
+#+end_src
+
+* Czego NIE robić
+- nix flake update bez commita
+- build na brudnym repo bez świadomości
+- duże zmiany bez checkpointów
+
+* Ratunek
+
+** Cofnięcie update flake
+#+begin_src bash
+git checkout -- flake.lock
+#+end_src
+
+** Powrót do wcześniejszego stanu
+#+begin_src bash
+git log --oneline
+git checkout <commit>
+#+end_src
+
+* Minimum bezpieczeństwa
+- commit przed buildem
+- osobny commit dla flake.lock
+- push po stabilnym stanie
+
+Trzymając się tego workflow,
+flakes przestają być ryzykowne.

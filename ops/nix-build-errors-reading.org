@@ -1,0 +1,88 @@
+#+TITLE: Nix — jak czytać błędy builda (5 kroków)
+#+STARTUP: showall
+
+Ta ściąga jest po to, żeby nie panikować i nie zgadywać.
+
+* 1. Szukaj pierwszego słowa „error:”
+Ignoruj wszystko powyżej.
+
+Interesuje Cię pierwszy blok zaczynający się od:
+error:
+
+To jest JEDYNA przyczyna, reszta to kontekst.
+
+* 2. Znajdź plik + linię (at … :line:col)
+
+Przykład:
+syntax error, unexpected ':'
+at /etc/nixos/modules/zsh.nix:60:3
+
+To znaczy:
+- plik: /etc/nixos/modules/zsh.nix
+- linia: 60
+- kolumna: 3
+
+👉 Otwórz TEN plik, NIE inny.
+
+* 3. „syntax error” → sprawdzaj granice bloków
+
+Najczęstsze winy:
+- niedomknięte '' (heredoc w HM)
+- nadmiarowy znak (:, {, }, ;)
+- linia w złym miejscu (poza blokiem)
+
+Parser krzyczy TAM, gdzie się zgubił,
+nie zawsze tam, gdzie błąd powstał.
+
+* 4. Ostrzeżenia (warning:) NIE blokują buildu
+
+Przykład:
+warning: Git tree '/etc/nixos' is dirty
+
+To informacja, nie przyczyna awarii.
+
+👉 Naprawiaj dopiero po działającym buildzie.
+
+* 5. Logi gita czytaj osobno
+
+Przykład:
+create mode 100644 "\"
+
+To znaczy:
+- git dodał nowy plik
+- nazwa pliku to dokładnie: \
+
+To nie jest błąd nix — tylko artefakt edycji.
+
+👉 Sprawdź repo:
+#+begin_src bash
+ls -la
+#+end_src
+
+* Złota zasada
+Nix zawsze mówi prawdę, tylko bardzo dosłownie.
+Nie zgaduj. Czytaj dokładnie JEDNĄ linię, którą wskazuje.
+
+* Workflow (mini-diagram)
+
+#+begin_src text
+edit
+↓
+nixos-rebuild build (suchy build)
+↓
+czy build OK?
+├─ TAK → nss (build + switch + snapshot)
+│
+└─ NIE → nixe
+↓
+czytanie błędu + ściąga
+↓
+poprawka
+↓
+nixos-rebuild build
+↓
+(wróć do decyzji)
+#+end_src
+
+* Zasady użycia
+- zawsze zac

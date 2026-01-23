@@ -1,0 +1,22 @@
+#+title: Readme
+* docs/ — dokumentacja referencyjna
+
+Pytanie: jak to dokładnie działa?
+
+Tu trafiają:
+
+- opisy opcji
+
+- parametry
+
+- dłuższe wyjaśnienia
+
+Przykłady:
+
+- opcje NixOS
+
+- flagsy narzędzi
+
+- „co oznacza ten warning”
+
+To jest miejsce, do którego wracasz, nie zaglądasz codziennie.

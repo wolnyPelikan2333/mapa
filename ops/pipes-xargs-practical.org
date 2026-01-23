@@ -1,0 +1,103 @@
+#+TITLE: Shell — pipes (|) i xargs (praktyczne minimum)
+#+STARTUP: showall
+
+Ściąga do łączenia poleceń w potoki i wykonywania akcji na wynikach.
+
+Cel:
+- skleić proste komendy w jedno użyteczne narzędzie
+- bezpiecznie operować na wielu plikach
+- rozumieć, kiedy pipe, a kiedy xargs
+
+* Pipes (|) — przekazywanie wyjścia dalej
+
+** Podstawy
+#+begin_src bash
+komenda1 | komenda2
+#+end_src
+
+- STDOUT z komenda1 → STDIN komenda2
+- brak plików tymczasowych
+
+** Klasyki
+#+begin_src bash
+rg ERROR | less
+ps aux | rg nix
+ls -l | awk '{print $9}'
+#+end_src
+
+** Mentalny skrót
+- filtrowanie / formatowanie → pipe
+- brak efektów ubocznych → bezpieczne
+
+* xargs — wykonaj komendę na wynikach
+
+** Dlaczego xargs?
+Pipe przekazuje tekst, a nie argumenty.
+xargs zamienia linie na argumenty polecenia.
+
+** Podstawy
+#+begin_src bash
+fd .nix | xargs wc -l
+#+end_src
+
+** Bezpieczne rozbijanie (spacje, znaki specjalne)
+#+begin_src bash
+fd .nix -0 | xargs -0 wc -l
+#+end_src
+
+Zasada:
+- zawsze używaj -0, jeśli to możliwe
+
+** Jedno wywołanie na element
+#+begin_src bash
+fd .nix | xargs -n1 echo
+#+end_src
+
+** Podgląd zamiast wykonania
+#+begin_src bash
+fd .nix | xargs echo rm
+#+end_src
+
+Dopiero potem:
+#+begin_src bash
+fd .nix | xargs rm
+#+end_src
+
+* Pipe vs xargs — kiedy co?
+
+| Sytuacja            | Użyj   |
+|---------------------+--------|
+| Filtrowanie tekstu  | pipe   |
+| Zliczanie, format   | pipe   |
+| Operacje na plikach | xargs  |
+| rm, chmod, wc       | xargs  |
+
+* Najczęstsze kombinacje
+
+** Znajdź pliki → działaj
+#+begin_src bash
+fd '.log' | xargs rg ERROR
+#+end_src
+
+** Dużo wyników, bezpiecznie
+#+begin_src bash
+fd .nix -0 | xargs -0 rg flake
+#+end_src
+
+** Szybki audit
+#+begin_src bash
+fd .nix | xargs wc -l | sort -n
+#+end_src
+
+* Mentalne skróty
+- pipe = przekazuję tekst dalej
+- xargs = robię coś na wynikach
+- najpierw echo, potem akcja
+
+* Minimum do zapamiętania
+#+begin_src bash
+komenda | komenda
+fd -0 | xargs -0 <cmd>
+#+end_src
+
+To zamyka podstawowy arsenał pracy w shellu.

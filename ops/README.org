@@ -1,0 +1,25 @@
+#+title: Readme
+* ops/ — ściągi operatorskie
+
+Pytanie: jaką komendę wpisać TERAZ?
+
+To jest dokładnie to, co robimy teraz.
+
+Tu trafiają:
+
+- krótkie ściągi
+
+- wzorce użycia
+
+-porównania typu „A vs B”
+
+Przykłady:
+
+- rg vs grep
+
+- find + xargs — wzorce
+
+- git reset — który i kiedy
+
+✅ pytanie → odpowiedź → komenda
+❌ brak narracji

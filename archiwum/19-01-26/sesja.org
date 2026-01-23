@@ -1,0 +1,16 @@
+#+TITLE: sesja 19-01-26
+
+# Reguła dnia:
+# Na koniec dnia cały katalog dnia trafia do archiwum.
+# Jeśli projekt nie jest skończony, do następnego dnia przenoszę tylko pliki projektu;
+# reszta dnia idzie do archiwum.
+
+* 07:25 Rozpoczęcie pracy
+** Usunięcie plików rozpoczęcie.org i zakończenie.org
+** Utworzenie w to miejsce pliku sesja.org
+** Dodanie reguły dnia
+* Przerwa:
+Powód:
+- przeciążenie procesu
+* Powrót do pracy:
+Utworzenie katalogu następnego dnia i plików

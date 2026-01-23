@@ -1,0 +1,26 @@
+#+title: Readme
+* atlas/ — mapa wiedzy
+
+Pytanie: jak ten świat jest zbudowany?
+
+Tu trafiają:
+
+- opisy systemów
+
+- zależności
+
+-„jak to się składa w całość”
+
+-dokumenty, które czytasz, nie wykonujesz
+
+Przykłady:
+
+-„jak działa mój setup NixOS”
+
+-„architektura repo”
+
+-„jak łączą się PLAN / SESJE / NOTATKI”
+
+❌ brak komend
+❌ brak checklist
+✅ dużo „dlaczego”

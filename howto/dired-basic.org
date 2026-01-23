@@ -1,0 +1,54 @@
+#+title: Dired — podstawy pracy z plikami
+#+author: michal
+#+startup: overview
+
+* Zasada ogólna
+Dired służy do *przeglądania katalogów*.
+Tworzenie i edycja plików robimy przez =find-file=.
+
+Nie używamy =wdired= do codziennej pracy.
+
+* Wejście do Dired
+- =SPC f d= — otwórz katalog
+- =C-x d= — klasyczne Dired
+
+* Tworzenie nowego pliku (ZAWSZE DZIAŁA)
+Będąc w Dired (również w pustym katalogu):
+
+1. =C-x C-f=
+2. Wpisz nazwę pliku, np. =notatka.org=
+3. =RET=
+4. Zapisz plik: =C-x C-s=
+
+To jest podstawowy i najbezpieczniejszy sposób.
+
+* Tworzenie nowego katalogu
+W Dired:
+- =+=
+- wpisz nazwę katalogu
+- =RET=
+
+* Zmiana nazwy pliku lub katalogu
+Kursor na elemencie:
+- =R=
+- wpisz nową nazwę
+- =RET=
+
+* Czego NIE używać na co dzień
+** wdired-mode
+- włączany przez =C-x C-q=
+- służy tylko do masowej zmiany nazw
+- nie pozwala tworzyć nowych plików
+- w Doom + Evil blokuje normalne skróty
+
+Wyjście z wdired:
+- =C-c C-k= — anuluj
+- =C-c C-c= — zatwierdź zmiany
+
+* Procedura ratunkowa
+Jeśli coś się „zablokuje”:
+- =SPC q q=
+- uruchom ponownie =emacs=
+
+* Jedno zdanie do zapamiętania
+Nowy plik w Dired = =find-file= (=C-x C-f=).

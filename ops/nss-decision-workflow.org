@@ -1,0 +1,91 @@
+#+TITLE: NSS — ściąga decyzyjna (NixOS)
+#+STARTUP: showall
+
+Cel:
+Bezpieczny workflow nss (build / switch / commit) w NixOS z flakes.
+Zawsze wiesz co robisz, dlaczego i z jakim ryzykiem.
+
+* Co chcesz zrobić?
+
+** A) Tylko sprawdzić, czy konfiguracja się buduje
+- Użyj: nss --dry
+- Efekt: brak zmian w systemie
+- Kiedy: przed każdym realnym switchem
+
+Decyzja:
+- Build OK → możesz iść dalej
+- Błąd → naprawiasz, bez ryzyka
+
+** B) Zbudować i przełączyć system (bez commita)
+- Użyj: nss → wybierz B (build + switch)
+- Efekt: nowa generacja systemu
+- Kiedy: test zmian lokalnie
+
+Ryzyko: średnie
+
+Po fakcie:
+- system działa → commit później
+- system nie działa → rollback
+
+** C) Zbudować, przełączyć i zapisać w Git
+- Użyj: nss → wybierz C (build + switch + commit)
+- Efekt: zmiana w systemie + commit
+- Kiedy: zmiana sprawdzona i pewna
+
+Ryzyko: niskie (jeśli dry-run był OK)
+
+** D) Przerwać bez zmian
+- Użyj: wybierz D lub wpisz „zamykamy”
+- Efekt: zero akcji
+- Kiedy: zmęczenie / niepewność
+
+* Bramka decyzyjna (Decision Gate)
+
+Podczas nss zobaczysz ocenę ryzyka:
+- LOW — drobne zmiany, bezpieczne
+- NORMAL — standardowy switch
+- HIGH — uważaj, rozważ abort
+
+Zasada:
+Przy HIGH → abort albo tylko build
+
+* Co jeśli coś pójdzie nie tak?
+
+** System nie wstaje / coś się zepsuło
+1. Wejdź w poprzednią generację z bootloadera
+2. Zaloguj się
+3. Sprawdź:
+#+begin_src bash
+sys-list
+#+end_src
+4. Rollback:
+#+begin_src bash
+sudo nixos-rebuild switch --rollback
+#+end_src
+
+* Typowe scenariusze
+
+** Mała zmiana (alias, docs, komentarz)
+- nss --dry
+- nss → C
+
+** Nowy moduł / większa refaktoryzacja
+- nss --dry
+- nss → B
+- test
+- dopiero potem commit
+
+** Zmęczenie / brak pewności
+- nss --dry
+- D / zamykamy
+
+* Złote zasady
+- nie rób switch bez --dry
+- nie commituj rzeczy nieprzetestowanych
+- każda sesja = świadoma decyzja
+- w razie wątpliwości: abort
+
+* Powiązane
+- howto/nixos-flake-safe-workflow.org
+- howto/nixos-emergency-panic-mode.org
+- AKTYWNA.org

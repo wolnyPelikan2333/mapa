@@ -1,0 +1,91 @@
+#+TITLE: Vim / Neovim — ściąga ratunkowa (panic mode)
+#+STARTUP: showall
+
+Ta ściąga jest na moment, gdy:
+- jesteś zmęczony
+- edytujesz ważne pliki (np. /etc/nixos)
+- chcesz zrobić coś szybko i bez ryzyka
+
+Bez teorii. Tylko rzeczy, które naprawdę się przydają.
+
+* Wejście / wyjście (PANIC LEVEL 0)
+
+#+begin_src vim
+:q        " wyjście (gdy brak zmian)
+:q!       " wyjście bez zapisu
+:w        " zapisz
+:wq       " zapisz i wyjdź
+#+end_src
+
+* Szukanie
+
+#+begin_src vim
+/tekst    " szukaj
+n         " następne
+N         " poprzednie
+#+end_src
+
+* Znajdź i zamień (NAJWAŻNIEJSZE)
+
+** Cały plik
+#+begin_src vim
+:%s/stare/nowe/g
+#+end_src
+
+** Bezpiecznie (z potwierdzeniem)
+#+begin_src vim
+:%s/stare/nowe/gc
+#+end_src
+
+👉 To jest tryb domyślny przy zmęczeniu.
+
+* Zaznaczanie
+
+#+begin_src vim
+v   " znaki
+V   " linie
+#+end_src
+
+Zamiana tylko w zaznaczeniu:
+#+begin_src vim
+:s/stare/nowe/g
+#+end_src
+
+* Cofanie / ponawianie
+
+#+begin_src vim
+u        " cofnij
+Ctrl+r   " ponów
+#+end_src
+
+* Kopiuj / wklej (wewnątrz vim)
+
+#+begin_src vim
+yy   " kopiuj linię
+p    " wklej pod spodem
+P    " wklej nad
+#+end_src
+
+* Usuwanie
+
+#+begin_src vim
+dd   " usuń linię
+dw   " usuń słowo
+#+end_src
+
+* Nawigacja (minimum)
+
+#+begin_src vim
+gg   " początek pliku
+G    " koniec pliku
+#+end_src
+
+* PANIC MODE — zapamiętaj tylko to
+
+#+begin_src vim
+:q!
+:%s/stare/nowe/gc
+u
+#+end_src
+
+Jeśli znasz te kilka komend — wystarczy do bezpiecznej pracy w NixOS.

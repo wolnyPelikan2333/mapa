@@ -1,0 +1,119 @@
+#+TITLE: Git ↔ NixOS ↔ Rollback — ściąga mentalna
+#+STARTUP: showall
+
+* Cel
+Szybkie, spokojne ogarnięcie co za co odpowiada,
+bez paniki i bez ryzyka.
+
+* Git — do czego JEST, a do czego NIE
+
+** Git = źródło konfiguracji (plan)
+
+Przechowuje:
+- flake.nix, flake.lock
+- nixos/configuration.nix
+- moduły (modules/*.nix)
+- home-manager
+
+Git NIE przechowuje:
+- /nix/store
+- generacji systemu
+- stanu aktualnie uruchomionego systemu
+
+Git opisuje:
+- JAK system ma być zbudowany
+a nie:
+- JAKI jest teraz
+
+* NixOS — jak naprawdę powstaje system
+
+#+begin_src text
+pliki .nix (Git)
+        ↓
+  nixos-rebuild
+        ↓
+   /nix/store
+        ↓
+   generacja
+        ↓
+   uruchomiony system
+#+end_src
+
+- Każdy nixos-rebuild switch → NOWA generacja
+- Stare generacje zostają, dopóki ich nie usuniesz
+
+* Rollback — dlaczego jest bezpieczny
+
+Rollback NIE używa Gita.
+
+Rollback korzysta z:
+- zapisanych generacji
+- profilu systemowego
+- bootloadera
+
+Dlatego:
+- uszkodzony Git ≠ uszkodzony system
+- brak /etc/nixos ≠ brak rollbacku
+
+Rollback = cofnięcie CZASU systemu,
+nie historii repo.
+
+* Reinstalacja systemu — jak to się składa w całość
+
+#+begin_src text
+GitHub repo
+    ↓
+klon do /etc/nixos
+    ↓
+nixos-rebuild switch --flake
+    ↓
+NOWY system
+#+end_src
+
+Możesz wybrać:
+- master
+- recovery-baseline
+- tag golden-*
+
+Historia Gita nie ma znaczenia —
+liczy się treść plików.
+
+* Force push vs recovery branch (najważniejsze)
+
+** Force push (--force-with-lease)
+- zastępuje historię master na GitHubie
+- ryzykowny przy zmęczeniu
+- sensowny tylko świadomie
+
+** Recovery branch (recovery-baseline)
+- zapisuje aktualny stan jako nową gałąź
+- NICZEGO nie niszczy
+- idealny jako checkpoint bezpieczeństwa
+
+* Złote zasady
+
+- commit + push PRZED nixos-rebuild
+- nie force-push, gdy jesteś zmęczony
+- recovery-branch, gdy masz wątpliwości
+- rollback to Twoja siatka bezpieczeństwa
+
+* Minimalny workflow (bezpieczny)
+
+#+begin_src text
+zmiana w .nix
+   ↓
+git commit
+   ↓
+git push
+   ↓
+nixos-rebuild
+#+end_src
+
+* Jedno zdanie na koniec
+
+Git wpływa na przyszłe buildy.
+Rollback ratuje przeszłe buildy.
+Nigdy się nie gryzą.
+
+Ta ściąga powstała po realnym recovery —
+to nie teoria, tylko praktyka.

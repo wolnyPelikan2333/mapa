@@ -1,0 +1,235 @@
+#+title: Czy mogę teraz budować / zmieniać NixOS?
+
+* Pytanie:
+- Czy wolno mi teraz wykonywać nss / rebuild / zmiany w /etc/nixos?
+
+- Decyzja:
+  TAK, tylko jeśli istnieje plik:
+    /etc/nixos/OK_TO_BUILD
+
+- NIE:
+  Jeśli plik nie istnieje — NIE WOLNO budować ani zmieniać systemu.
+
+- Uzasadnienie:
+  Flaga jest prostsza niż git.
+  Plik albo jest, albo go nie ma.
+  Brak interpretacji = mniejsze ryzyko.
+* Jak jest egzekwowana blokada?
+
+Mechanizm:
+Każde uruchomienie `nss` MUSI najpierw sprawdzić,
+czy istnieje plik:
+  /etc/nixos/OK_TO_BUILD
+
+Jeśli plik nie istnieje:
+  - build jest zabroniony
+  - komenda MUSI się zatrzymać
+  - użytkownik dostaje jasny komunikat: "NIE BUDUJ"
+
+* Zakres blokady:
+
+Blokada dotyczy WYŁĄCZNIE komendy `nss`.
+
+Uzasadnienie:
+- `nss` jest jedyną drogą budowania systemu w normalnym workflow
+- `nixos-rebuild` jest traktowany jako narzędzie awaryjne
+- Ochrona ma być lekka, nie totalna
+
+Konsekwencja:
+Jeśli uruchomię `nixos-rebuild` ręcznie,
+robię to świadomie i na własną odpowiedzialność.
+
+* Warunek odblokowania nss:
+
+Zanim utworzę plik:
+  /etc/nixos/OK_TO_BUILD
+
+MUSZĘ:
+1. wykonać snapshot katalogu /etc/nixos
+2. mieć możliwość ręcznego przywrócenia snapshotu
+3. dopiero potem odblokować build
+
+* Czym jest snapshot?
+
+Snapshot = pełna kopia katalogu /etc/nixos
+zapisana w katalogu backupów
+z nazwą zawierającą datę i godzinę.
+
+Snapshot NIE:
+- nie jest repozytorium
+- nie jest wersjonowaniem
+- nie jest historią zmian
+
+Snapshot JEST:
+- punktem powrotu
+- hamulcem bezpieczeństwa
+- śladem „co było przed”
+
+* Rejestrowanie zmian systemowych:
+
+Po wykonaniu snapshotu /etc/nixos
+ZANIM utworzę OK_TO_BUILD
+robię wpis w:
+
+~/mapa/dni/DD-MM-YYYY/sesja.org
+
+Wpis zawiera:
+- datę i godzinę
+- informację, że snapshot został wykonany
+- krótki powód planowanej zmiany
+
+
+* Procedura zmiany systemu:
+
+1. Snapshot /etc/nixos
+2. Sprawdzenie, że snapshot istnieje
+3. Utworzenie OK_TO_BUILD
+4. Uruchomienie nss
+5. Po zakończeniu:
+   - usunięcie OK_TO_BUILD
+   - dopisanie wyniku do SESJA.org
+
+* Lokalizacja snapshotów:
+
+Snapshoty /etc/nixos są przechowywane w katalogu użytkownika,
+w dedykowanym miejscu, np.:
+
+~/snapshots/nixos/
+
+Uzasadnienie:
+- brak sudo przy tworzeniu snapshotu
+- mniejszy koszt poznawczy
+- spójność z dokumentacją i workflow
+
+* Nazewnictwo snapshotów:
+
+Każdy snapshot ma nazwę zawierającą:
+- datę
+- godzinę
+- krótki opis celu zmiany
+
+Format (przykład):
+DD-MM-YYYY_HH-MM__przed_<opis>/
+ 22-01-2026_14-30__przed_vterm/
+
+ Uzasadnienie:
+- zgodność z sesja.org
+- zgodność z formatem dziennym
+- brak konwersji w głowie
+
+* Zawartość snapshotu:
+
+Snapshot MUSI zawierać:
+- pełną kopię /etc/nixos
+- bez pomijania plików
+- bez optymalizacji
+
+* Opis snapshotu:
+
+Opis snapshotu jest OBOWIĄZKOWY.
+Opis może być:
+- niedokładny
+- roboczy
+- brzydki
+- skrótowy
+
+Opis NIE musi:
+- być technicznie poprawny
+- być pełnym zdaniem
+- tłumaczyć wszystkiego
+
+Cel:
+Żebym wiedział „co wtedy robiłem”.
+
+* Komenda do snapshot
+- robimy katalog → kopiujemy /etc/nixos → gotowe
+mkdir -p ~/snapshots/nixos/22-01-2026_14-30__przed_OPIS \
+&& sudo cp -a /etc/nixos/. ~/snapshots/nixos/22-01-2026_14-30__przed_OPIS/
+
+* Obowiązkowy wpis do sesja.org (minimalny)
+
+Po snapshotcie, przed flagą, wpisujesz np.:
+
+[14:30]
+Snapshot /etc/nixos: 22-01-2026_14-30__przed_vterm
+Plan: zmiany w emacs/vterm
+
+* Zasada flagi OK_TO_BUILD:
+
+Plik /etc/nixos/OK_TO_BUILD
+jest stanem TYMCZASOWYM.
+
+Flaga:
+- NIE jest trwała
+- NIE przechodzi między sesjami
+- NIE może zostać na noc
+Usunięcie OK_TO_BUILD:
+
+OK_TO_BUILD MUSI zostać usunięty:
+- po zakończeniu `nss`
+- po przerwaniu pracy
+- przy zmęczeniu
+- przy haśle „zamykamy”
+- przed zamknięciem dnia
+
+* Procedura zamknięcia pracy systemowej:
+
+1. Usunąć /etc/nixos/OK_TO_BUILD
+2. Dopisać wynik do sesja.org
+3. Koniec pracy z systemem
+
+* Jeśli po czasie widzę, że OK_TO_BUILD nadal istnieje:
+
+1. NATYCHMIAST go usuwam
+2. Robię wpis w sesja.org:
+   "Flaga została znaleziona po czasie – usunięta"
+3. NIE wykonuję żadnych buildów tego dnia
+
+* Procedura zmiany systemu (pełna):
+
+1. Snapshot /etc/nixos → ~/snapshots/nixos/DD-MM-YYYY_HH-MM__przed_opis
+2. Wpis do sesja.org (data + godzina)
+3. Utworzenie /etc/nixos/OK_TO_BUILD
+4. Uruchomienie nss
+5. Usunięcie /etc/nixos/OK_TO_BUILD
+6. Wpis wyniku do sesja.org
+7. Koniec pracy z systemem
+
+* Snapshot /etc/nixos — wersja minimalna (cd + mkdir)
+ Cel:
+Wykonać snapshot /etc/nixos bez przeciążania poznawczego.
+
+Zasada:
+Nie wpisujemy długich ścieżek.
+Każda komenda = jeden prosty krok.
+
+Kroki:
+
+1. Przejdź do katalogu domowego:
+   cd ~
+
+2. Upewnij się, że istnieje katalog snapshotów (robione raz):
+   mkdir -p snapshots/nixos
+
+3. Wejdź do katalogu snapshotów:
+   cd snapshots/nixos
+
+4. Utwórz katalog snapshotu (krótka nazwa, robocza):
+   mkdir test
+
+   (nazwa NIE musi być idealna)
+
+5. Sprawdź, czy katalog istnieje:
+   ls
+
+6. Skopiuj /etc/nixos do katalogu snapshotu:
+   sudo cp -a /etc/nixos/. test/
+
+Efekt:
+Snapshot /etc/nixos znajduje się w:
+~/snapshots/nixos/test
+
+Uwagi:
+- nazwa katalogu może być bardzo prosta
+- szczegóły (data, powód) zapisujemy w sesja.org
+- celem jest bezpieczeństwo, nie estetyka

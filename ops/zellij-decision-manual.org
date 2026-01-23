@@ -1,0 +1,130 @@
+#+TITLE: Zellij — manual decyzyjny (terminal / NixOS)
+#+STARTUP: showall
+
+Cel:
+Szybka, bezpieczna praca w terminalu bez gubienia kontekstu.
+Format: pytanie → odpowiedź → gotowa komenda / skrót.
+
+* Co to jest Zellij?
+Zellij to terminalowy multiplexer (jak tmux), ale z:
+- gotowymi layoutami
+- pane + tab out of the box
+- czytelnymi skrótami
+- sensowną obsługą myszy i trybów
+
+Używasz go zamiast (albo obok) tmux/screen.
+
+* Jak uruchomić Zellij?
+** Pytanie
+Chcę wejść do sesji Zellij.
+
+** Odpowiedź
+#+begin_src bash
+zellij
+#+end_src
+
+Jeśli sesja już istnieje — zostaniesz do niej dołączony.
+
+* Jak wyjść z Zellij bez zabijania sesji?
+** Pytanie
+Chcę wyjść, ale zostawić sesję.
+
+** Odpowiedź
+- Ctrl + o, potem d  → detach
+
+Sesja dalej żyje w tle.
+
+* Jak zabić sesję Zellij?
+** Pytanie
+Chcę zamknąć wszystko.
+
+** Odpowiedź
+#+begin_src bash
+exit
+#+end_src
+
+(z każdego pane, aż sesja się zamknie)
+
+* Podstawowe pojęcia
+- Pane — podzielony obszar (jak split w WezTerm)
+- Tab — zestaw pane (jak workspace)
+- Mode — tryb klawiszy (normal / pane / tab / resize)
+
+Zellij jest modalny — skróty zależą od trybu.
+
+* Klawisz bazowy (prefix)
+W Zellij nie ma jednego twardego prefixu jak Ctrl-b w tmux.
+Najczęściej używany:
+- Ctrl + o — wejście do trybu poleceń
+
+* Pane — podział ekranu
+
+** Nowy pane
+- Ctrl + o → n — nowy pane (domyślnie poziomo)
+
+** Podział pionowy / poziomy
+- Ctrl + o → v — split pionowy
+- Ctrl + o → h — split poziomy
+
+** Zamknięcie pane
+- Ctrl + o → x
+
+* Przełączanie pane
+- Alt + ← ↑ → ↓
+(bez wchodzenia w tryby — ważne ergonomicznie)
+
+* Zmiana rozmiaru pane
+- Ctrl + o → r (resize mode)
+- potem ← ↑ → ↓
+- Esc — wyjście z trybu
+
+* Tab — zakładki
+
+** Nowa zakładka
+- Ctrl + o → t
+
+** Przełączanie tabów
+- Alt + ← / →
+
+** Zamknięcie tab
+- Ctrl + o → w
+
+* Layouty (killer feature)
+** Pytanie
+Chcę gotowy układ (np. editor + terminal + logi).
+
+** Odpowiedź
+#+begin_src bash
+zellij --layout default
+#+end_src
+
+Albo własny layout (YAML):
+#+begin_src bash
+zellij --layout moja-praca
+#+end_src
+
+Layouty trzymasz w:
+#+begin_src text
+~/.config/zellij/layouts/
+#+end_src
+
+* Sesje
+
+** Lista sesji
+#+begin_src bash
+zellij list-sessions
+#+end_src
+
+** Dołączanie
+#+begin_src bash
+zellij attach <nazwa>
+#+end_src
+
+** Nowa nazwana sesja
+#+begin_src bash
+zellij -s robota
+#+end_src
+
+* Tryb kopiowania (scroll)
+- Ctrl + o → s
+- strzałki / PgUp / PgDn

@@ -1,0 +1,56 @@
+#+TITLE: rg vs grep — kiedy które
+#+STARTUP: showall
+
+* Kiedy użyć rg zamiast grep?
+** Odpowiedź
+Gdy szukasz w repo / projekcie i chcesz szybko przeszukać wiele plików
+z pominięciem .gitignore i katalogów binarnych.
+
+** Komenda
+#+begin_src bash
+rg 'wzorzec'
+#+end_src
+
+---
+
+* Kiedy użyć grep zamiast rg?
+** Odpowiedź
+Gdy pracujesz na pojedynczych plikach, strumieniach lub w prostych skryptach
+POSIX, gdzie rg nie jest dostępne.
+
+** Komenda
+#+begin_src bash
+grep -R 'wzorzec' .
+#+end_src
+
+---
+
+* Jak szukać z nazwą pliku i numerem linii?
+** rg
+#+begin_src bash
+rg -n 'wzorzec'
+#+end_src
+
+** grep
+#+begin_src bash
+grep -Rn 'wzorzec' .
+#+end_src
+
+---
+
+* Jak szukać tylko w konkretnym typie plików?
+** rg
+#+begin_src bash
+rg 'wzorzec' -t nix
+#+end_src
+
+** grep
+#+begin_src bash
+grep -Rn --include='*.nix' 'wzorzec' .
+#+end_src
+
+---
+
+* Uwaga praktyczna
+rg jest domyślnym wyborem do pracy interaktywnej.
+grep zostaje jako narzędzie bazowe do skryptów i minimalnych środowisk.

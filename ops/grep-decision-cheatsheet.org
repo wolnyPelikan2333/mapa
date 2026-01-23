@@ -1,0 +1,70 @@
+#+TITLE: grep — ściąga decyzyjna
+#+STARTUP: showall
+
+grep = bezpieczne czytanie plików
+POSIX • pipe • działa wszędzie
+
+* START — co chcesz przeszukać?
+
+** Jeden plik
+#+begin_src bash
+grep "TEKST" plik
+#+end_src
+
+** Katalog (rekurencyjnie)
+#+begin_src bash
+grep -R "TEKST"
+#+end_src
+
+** Numery linii (zazwyczaj TAK)
+#+begin_src bash
+grep -Rn "TEKST"
+#+end_src
+
+Używaj gdy:
+- analizujesz warningi / błędy
+- otwierasz wynik w edytorze
+- czytasz logi
+
+* Bezpieczny output (binarki, symlinki, śmieci)
+
+** Ignoruj pliki binarne
+#+begin_src bash
+grep -RIn -I "TEKST"
+#+end_src
+
+** Ogranicz typ plików
+#+begin_src bash
+grep -RIn --include="*.nix" "OPCJA" .
+#+end_src
+
+Używaj w /etc/nixos, gdy:
+- nie chcesz grepować logów i wyników buildów
+- szukasz opcji NixOS
+
+** Pomiń katalogi techniczne
+#+begin_src bash
+grep -RIn --exclude-dir=result "OPCJA" .
+#+end_src
+
+Zapobiega warningom z niedziałających symlinków (result/).
+
+** KANONICZNA KOMENDA (bezpieczna)
+#+begin_src bash
+grep -RIn -I --include="*.nix" --exclude-dir=result "OPCJA"
+#+end_src
+
+Użyj gdy:
+- opcja jest „gdzieś” w modułach
+- analizujesz warningi nixos-rebuild
+- audytujesz konfigurację
+
+* Dopasowanie tekstu
+
+** Ignoruj wielkość liter
+#+begin_src bash
+grep -Ri "tekst"
+#+end_src
+
+** Fragment vs całe słowo
+#+begin_src bas_
