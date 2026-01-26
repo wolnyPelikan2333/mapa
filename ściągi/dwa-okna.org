@@ -1,0 +1,73 @@
+* 🎬 ŚCIĄGA — Keyboard macro (dwa okna, kopiowanie linii)
+
+** Cel:
+Skopiować bieżącą linię z lewego okna do prawego okna,
+nagrywać jako makro,
+zapisać makro do pliku na przyszłość.
+** KROK 0 — przygotowanie (stan początkowy)
+
+Emacs ma dwa okna
+
+w lewym oknie: plik źródłowy
+
+w prawym oknie: plik docelowy
+
+kursor stoi na linii do skopiowania w lewym oknie
+
+⚠️ Makro nagrywa ruchy i klawisze, nie „logikę” – zaczynaj zawsze z tego samego stanu.
+
+** KROK 1 — rozpoczęcie nagrywania makra
+F3
+Emacs zaczyna nagrywać wszystko, co zrobisz od teraz.
+
+** KROK 2 — wykonaj czynności (dokładnie w tej kolejności)
+*** 2.1 Skopiuj bieżącą linię (kill-line)
+C-a    ; przejdź na początek linii
+C-k    ; wytnij linię (trafia do kill-ring)
+
+*** 2.2 Przejdź do prawego okna
+C-x o
+Emacs przełącza fokus na drugie okno.
+
+*** 2.3 Wklej linię
+C-y
+Wklejenie zawartości z kill-ring.
+
+*** 2.4 Wróć do lewego okna
+C-x o
+Ważne: makro zawsze kończy się w tym samym oknie, w którym zaczęło.
+
+** KROK 3 — zakończenie nagrywania makra
+F4
+Makro jest teraz zapisane jako „last keyboard macro”.
+
+** KROK 4 — użycie makra
+Jedno wykonanie:
+F4
+Wiele wykonań (np. 10 linii):
+C-u 10 F4
+Makro powtórzy sekwencję linia po linii, zawsze lewy → prawy.
+
+** KROK 5 — nadanie nazwy makru (żeby żyło dalej)
+M-x name-last-kbd-macro
+Podaj nazwę, np.:
+copy-line-left-to-right
+Od teraz to jest normalna komenda Emacsa:
+M-x copy-line-left-to-right
+
+** KROK 6 — zapis makra do pliku (na przyszłość)
+
+1️⃣ Przejdź do pliku, gdzie trzymasz swoje makra
+(np. ~/.emacs.d/lisp/buffer-macros.el albo kbd-macros.el)
+
+2️⃣ Wstaw kod makra:
+
+M-x insert-kbd-macro
+Wybierz:
+copy-line-left-to-right
+
+Emacs wstawi kod w stylu:
+(fset 'copy-line-left-to-right
+   (kmacro-lambda-form
+    [C-a C-k C-x o C-y C-x o] 0 "%d"))
+Po restarcie Emacsa makro działa dalej.
