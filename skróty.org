@@ -1,0 +1,114 @@
+* Emacs — Ściąga skrótów (minimalna, praktyczna)
+
+** Pliki i bufory
+- C-x C-f :: otwórz plik
+- C-x b   :: przełącz bufor
+- C-x C-b :: lista buforów
+- C-x C-s :: zapisz plik
+- C-x C-w :: zapisz jako…
+- C-x k   :: zamknij bufor
+- M-[     :: początek bufora (zamiennik M-<)
+- M-]     :: koniec bufora (zamiennik M->)
+
+** Dired
+*** Nawigacja
+n / p        → następna / poprzednia linia
+RET          → otwórz plik / wejdź do katalogu
+^            → katalog nadrzędny
+g            → odśwież bufor (re-read directory)
+
+*** Oznaczanie (to jest SERCE Direda)
+m            → oznacz plik → wybieram zbiór → C/R/!/… → robię coś z wybranym zbiorem
+u            → usuń oznaczenie
+U            → usuń wszystkie oznaczenia
+* t          → odwróć zaznaczenie
+* s          → zaznacz wszystkie
+Myśl: najpierw oznaczasz, potem robisz akcję
+
+*** Operacje na plikach
+C            → kopiuj (copy)
+R            → przenieś / zmień nazwę (rename)
+D            → usuń (delete)   ⚠️ od razu
+d            → oznacz do usunięcia
+x            → wykonaj usunięcia oznaczonych
+d + x = bezpieczne kasowanie
+D = „wiem co robię”
+
+*** Tworzenie / zmiany  
++            → nowy katalog
+% R          → zmiana nazw (rename by regexp) to hurtowa broń — używaj świadomie
+% m          → oznacz wg regexp
+
+*** Widok / sortowanie
+s            → zmiana sortowania (name / date / size)
+(            → szczegóły on/off
+
+*** Praca z wieloma katalogami
+i            → wstaw podkatalog do tego samego bufora
+k            → usuń podkatalog z bufora
+To robi z Direda quasi drzewo, bez magii
+
+*** Shell / zewnętrzne polecenia
+!            → uruchom polecenie shell na pliku
+&            → uruchom w tle
+
+*** Edycja nazw jak tekst (MEGA WAŻNE)
+C-x C-q      → dired-toggle-read-only (tryb edycji)
+C-c C-c      → zatwierdź zmiany
+C-c C-k      → anuluj
+To jest moment, w którym:
+Dired przestaje być „menedżerem plików”,
+a zaczyna być buforem do operacji na nazwach.
+
+** Okna (splity)
+- C-x 3 :: split lewo–prawo (vertical)
+- C-x 2 :: split góra–dół (horizontal)
+- C-x 0 :: zamknij aktualne okno
+- C-x 1 :: zostaw tylko jedno okno
+- C-x o :: przejdź do następnego okna
+
+** Macra
+- C-x ( ::  Rozpocznij nagrywanie
+- C-x ) ::  Zakończ nagrywanie
+- C-x e ::  Odtwórz makro
+- C-u 100 C-x e :: wykonaj daną ilość razy
+  
+** Poruszanie się w tekście
+- C-a :: początek linii
+- C-e :: koniec linii
+- C-n :: następna linia
+- C-p :: poprzednia linia    
+- M-a :: początek zdania
+- M-e :: koniec zdania
+
+** Zaznaczanie i edycja
+- C-SPC :: rozpocznij zaznaczanie (mark)
+- C-w   :: wytnij zaznaczenie
+- M-w   :: skopiuj zaznaczenie
+- C-y   :: wklej (yank)
+- C-/   :: cofnij (undo)
+- C-g   :: przerwij / anuluj operację
+
+** Wyszukiwanie
+- C-s :: wyszukiwanie w przód
+- C-r :: wyszukiwanie wstecz
+- M-% :: zamień (query-replace)
+
+** Org-mode (podstawy)
+- TAB       :: rozwiń / zwiń nagłówek
+- S-TAB     :: globalne zwijanie/rozwijanie
+- C-c C-t   :: zmień TODO
+- C-c C-c   :: potwierdź / przelicz / odśwież
+- C-c C-e   :: eksport
+- M-RET     :: nowy element listy / nagłówek
+- M-S-RET   :: nowy TODO
+
+** Terminal
+- M-x vterm :: otwórz terminal (vterm)
+- C-c t     :: otwórz terminal (vterm)
+    
+** Pomoc
+- C-h k :: pomoc dla skrótu
+- C-h f :: pomoc dla funkcji
+- C-h v :: pomoc dla zmiennej
+- C-h m :: pomoc dla aktualnego trybu

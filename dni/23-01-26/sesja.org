@@ -1,4 +1,21 @@
 #+title: Sesja 23-01-26 00:20
+* 🧠 MINI-ŚCIĄGA (często używane, przenosić do plików sesja.org i plan.org)
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+** Zapisywanie
+- C-x C-s  :: zapisz (zamyka aktualną myśl)
+
+** Terminal w Doom (vterm)
+- Shift+Insert :: wklej ze schowka (standard terminalowy)
+- mysz + zaznaczenie :: kopiuje do schowka
+
+** Zasada mentalna
+- vterm ≠ bufor Emacsa
+- jak w terminalu → zachowuj się jak w terminalu
+
+
 * Instalacja i konfiguracja oprogramowania do zmiany nazw plików
 - Wdired,string-inflection,dired-toggle-case
 - Działania zakończone niepowodzeniem
@@ -11,8 +28,17 @@
 * Powrót do pracy: 20:17
 ** Co było robione:
 - instalacja lsd
-
-* Dokończenie budowania katalogu backup = mapa-repo + dokumentacja + najistotniejsze konfiguracje
-** - dokończenie budowania struktury plików
-** - przeniesienie plików do odpowiednich katalogów
-** - założenie mapa-repo na Githubie
+/etc/nixos/modules/zsh.nix
+— dodałem aliasy lsd
+— zsh w module, nie .zshrc
+— działa po nss
+* Przerwa: 21:08
+* Powrót do pracy: 22:00
+- Przegadanie tematu rozwoju produktywności
+- Wypracowanie wpisu pętli do pracy
+- Utworzenie katalogu ~/mapa/templates
+- Utworzenie szablonu pętli i zapis jej do ~/mapa/templates/petla-template.org
+* Przerwa: 23:27
+* Powrót do pracy: 23:30
+** Co jest robione:
+- Uruchamianie org-capture

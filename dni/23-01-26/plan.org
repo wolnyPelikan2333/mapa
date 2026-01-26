@@ -1,4 +1,21 @@
-  TITLE: Plan dnia 23-01-26
+TITLE: Plan dnia 23-01-26
+
+* 🧠 MINI-ŚCIĄGA (często używane, przenoszę do plan.org i sesja.org)
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+** Zapisywanie
+- C-x C-s  :: zapisz (zamyka aktualną myśl)
+
+** Terminal w Doom (vterm)
+- Shift+Insert :: wklej ze schowka (standard terminalowy)
+- mysz + zaznaczenie :: kopiuje do schowka
+
+** Zasada mentalna
+- vterm ≠ bufor Emacsa
+- jak w terminalu → zachowuj się jak w terminalu
+
 
 # Reguła dnia:
 # Na koniec dnia cały katalog dnia trafia do archiwum.

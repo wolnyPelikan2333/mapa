@@ -1,0 +1,19 @@
+* MOJE SKRÓTY (CUSTOM)
+  Minimalna lista tylko tych skrótów, które SAM dodałem lub zmieniłem.
+  Jeśli czegoś tu nie ma — to znaczy, że jest domyślne w Emacsie.
+
+** GLOBAL
+
+- M-[  :: początek bufora (beginning-of-buffer)
+  - dlaczego: stabilny zamiennik M-< (Alt+Shift+< nie działa w terminalu)
+
+- M-]  :: koniec bufora (end-of-buffer)
+  - dlaczego: stabilny zamiennik M-> (Alt+Shift+> nie działa w terminalu)
+
+- C-c t :: otwórz terminal (vterm)
+  - dlaczego: szybki dostęp do terminala bez M-x
+
+- C-c w s :: zamień stany okien (window-swap-states)
+  - dlaczego: częsta praca w splitach, szybka reorganizacja
+
+    

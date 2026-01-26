@@ -1,0 +1,7 @@
+#+title: Plan
+
+* Kierunki
+* Do rozważenia
+* Pomysły
+-formater do .nix
+* Później

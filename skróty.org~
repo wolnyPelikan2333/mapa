@@ -1,0 +1,64 @@
+* Emacs — Ściąga skrótów (minimalna, praktyczna)
+
+** Pliki i bufory
+- C-x C-f :: otwórz plik (find-file)
+- C-x C-s :: zapisz plik
+- C-x C-w :: zapisz jako…
+- M-<     :: początek bufora
+- M->     :: koniec bufora
+- C-x k   :: zamknij bufor
+- C-x b   :: przełącz bufor
+- C-x C-b :: lista buforów
+
+** Okna (splity)
+- C-x 3 :: split lewo–prawo (vertical)
+- C-x 2 :: split góra–dół (horizontal)
+- C-x 0 :: zamknij aktualne okno
+- C-x 1 :: zostaw tylko jedno okno
+- C-x o :: przejdź do następnego okna
+
+** Macra
+- C-x ( ::  Rozpocznij nagrywanie
+- C-x ) ::  Zakończ nagrywanie
+- C-x e ::  Odtwórz makro
+- C-u 100 C-x e :: wykonaj daną ilość razy
+  
+** Poruszanie się w tekście
+- C-a :: początek linii
+- C-e :: koniec linii
+- C-n :: następna linia
+- C-p :: poprzednia linia    
+- M-a :: początek zdania
+- M-e :: koniec zdania
+
+** Zaznaczanie i edycja
+- C-SPC :: rozpocznij zaznaczanie (mark)
+- C-w   :: wytnij zaznaczenie
+- M-w   :: skopiuj zaznaczenie
+- C-y   :: wklej (yank)
+- C-/   :: cofnij (undo)
+- C-g   :: przerwij / anuluj operację
+
+** Wyszukiwanie
+- C-s :: wyszukiwanie w przód
+- C-r :: wyszukiwanie wstecz
+- M-% :: zamień (query-replace)
+
+** Org-mode (podstawy)
+- TAB       :: rozwiń / zwiń nagłówek
+- S-TAB     :: globalne zwijanie/rozwijanie
+- C-c C-t   :: zmień TODO
+- C-c C-c   :: potwierdź / przelicz / odśwież
+- C-c C-e   :: eksport
+- M-RET     :: nowy element listy / nagłówek
+- M-S-RET   :: nowy TODO
+
+** Terminal
+- M-x vterm :: otwórz terminal (vterm)
+- C-c t     :: otwórz terminal (vterm)
+    
+** Pomoc
+- C-h k :: pomoc dla skrótu
+- C-h f :: pomoc dla funkcji
+- C-h v :: pomoc dla zmiennej
+- C-h m :: pomoc dla aktualnego trybu

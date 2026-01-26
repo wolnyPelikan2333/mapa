@@ -1,0 +1,197 @@
+* Emacs — Ściąga skrótów (minimalna, praktyczna)
+** Pliki i bufory
+- C-x C-f :: otwórz plik
+- C-x C-s :: zapisz plik
+- C-x C-w :: zapisz jako…
+- C-x k   :: zamknij bufor
+- C-x b   :: przełącz bufor
+- C-x C-b :: lista buforów
+
+** Macra
+- C-x ( ::  Rozpocznij nagrywanie
+- C-x ) ::  Zakończ nagrywanie
+- C-x e ::  Odtwórz makro
+  
+** Okna (splity)
+- C-x 3 :: split lewo–prawo
+- C-x 2 :: split góra–dół
+- C-x 0 :: zamknij aktualne okno
+- C-x 1 :: zostaw jedno okno
+- C-x o :: przejdź do następnego okna
+
+** Ruch — podstawy
+- C-n :: linia w dół
+- C-p :: linia w górę
+- C-f :: znak w prawo
+- C-b :: znak w lewo
+- C-a :: początek linii
+- C-e :: koniec linii
+
+** Ruch — szybkie skoki (ekran)
+- C-v :: ekran w dół
+- M-v :: ekran w górę
+
+** Ruch — skoki o kilka linii
+- C-u 5 C-p :: 5 linii w górę
+- C-u 5 C-n :: 5 linii w dół
+- C-u 10 C-p :: 10 linii w górę
+- C-u 10 C-n :: 10 linii w dół
+
+** Ruch — skok do linii
+- M-g g :: skok do numeru linii
+- M-g M-g :: skok do numeru linii (alternatywa)
+
+** Ruch — struktura kodu
+- M-a :: początek funkcji / bloku
+- M-e :: koniec funkcji / bloku
+- C-M-f :: do przodu po wyrażeniu (sexp)
+- C-M-b :: do tyłu po wyrażeniu
+- M-. :: idź do definicji symbolu
+- M-, :: wróć z definicji
+
+** Zaznaczanie i edycja
+- C-SPC :: rozpocznij zaznaczanie
+- C-w   :: wytnij
+- M-w   :: kopiuj
+- C-y   :: wklej
+- C-/   :: cofnij (undo)
+- C-g   :: anuluj / przerwij
+
+** Wyszukiwanie
+- C-s :: szukaj w przód
+- C-r :: szukaj wstecz
+- M-% :: zamień (query-replace)
+
+** Org-mode (podstawy)
+- TAB     :: rozwiń / zwiń nagłówek
+- S-TAB   :: globalne zwijanie
+- C-c C-t :: zmień TODO
+- C-c C-c :: potwierdź / przelicz
+- M-RET   :: nowy element / nagłówek
+- M-S-RET :: nowy TODO
+
+** Terminal
+- M-x vterm :: otwórz terminal
+
+** Pomoc
+- C-h k :: pomoc dla skrótu
+- C-h f :: pomoc dla funkcji
+- C-h v :: pomoc dla zmiennej
+- C-h m :: pomoc dla trybu
+
+* PĘTLA: Elpaca
+
+:PROPERTIES:
+:STATE: OPEN
+:START: <24-01-26 18:00>
+** Kontekst
+Dlaczego ta pętla istnieje:
+Package manager dla emacs  
+Co jest poza zakresem:
+
+** Przebieg
+Pomysł zaakceptowany
+
+** Zamykanie pętli
+- Warunek zamknięcia:
+- Co faktycznie zamyka pętlę:
+
+
+** STATUS:
+PĘTLA:
+:STATE:CLOSE
+:END: 24-01-26
+[CHECKPOINT] 24-01-26 18:05
+
+* PĘTLA: Elpaca-gadane
+:PROPERTIES:
+:STATE: OPEN
+:START: <24-01-26 18:00>
+** Kontekst
+Dlaczego ta pętla istnieje:
+Package manager dla emacs  
+Co jest poza zakresem:
+
+** Przebieg
+Pomysł przegadany
+
+** Zamykanie pętli
+- Warunek zamknięcia:
+- Co faktycznie zamyka pętlę:
+
+
+** STATUS:
+PĘTLA:
+:STATE:CLOSE
+:END: 24-01-26
+[CHECKPOINT] 24-01-26 18:05
+
+* PĘTLA: Elpaca-instalacja
+
+:PROPERTIES:
+:STATE: OPEN
+:START: <24-01-26 18:00>
+** Kontekst
+
+Dlaczego ta pętla istnieje:
+Package manager dla emacs  
+Co jest poza zakresem:
+
+** Przebieg
+-instalacja elpaca w ~/.emacs.d/init.el
+-instalacja elpaca z całym botstrap - błąd
+-instalacja step by step- step 1 - success
+-instalacja step by step- step 2 - success
+-instalacja step by step- step 3 - success
+-Elpaca — bootstrap (explicit) - success
+-instalacja elpaca kod z githuba - success
+
+** Zamykanie pętli
+- Warunek zamknięcia: zainstalowany soft
+- Co faktycznie zamyka pętlę: CLOSE
+
+
+** STATUS:
+PĘTLA:
+:STATE:CLOSE
+:END: 24-01-26
+[CHECKPOINT] 24-01-2026 21:45
+
+– GNU Emacs (vanilla) działa stabilnie
+– init.el ładuje się poprawnie (batch OK)
+– Elpaca zainstalowana oficjalnym bootstrapem (README)
+– elpaca-manager działa, UI dostępne
+– Brak zainstalowanych pakietów (czysty start)
+– Zrozumiana różnica: manager = katalog, log = wykonanie
+
+#+title: Pętla 
+
+* PĘTLA: <NAZWA>
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: <DD-MM-YYYY HH:MM>
+:END:
+:END:
+
+** Zakres tej pętli
+- Co TU robię:
+  -
+- Czego TU świadomie NIE robię:
+  -
+
+** Treść pętli
+-
+
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  -
+
+** ZAMKNIĘCIE PĘTLI
+:PĘTLA:
+:CLOSED:
+:END:
+
+[PĘTLA: <NAZWA>] — ZAMKNIĘTA
+Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
+Powód:

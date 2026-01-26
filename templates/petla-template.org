@@ -1,0 +1,31 @@
+#+title: Petla Template
+
+* PĘTLA: <NAZWA>
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: <DD-MM-YYYY HH:MM>
+:END:
+:END:
+
+** Zakres tej pętli
+- Co TU robię:
+  -
+- Czego TU świadomie NIE robię:
+  -
+
+** Treść pętli
+-
+
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  -
+
+** ZAMKNIĘCIE PĘTLI
+:PĘTLA:
+:CLOSED:
+:END:
+
+[PĘTLA: <NAZWA>] — ZAMKNIĘTA
+Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
+Powód:
