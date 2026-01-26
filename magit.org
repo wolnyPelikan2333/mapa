@@ -1,0 +1,8 @@
+M-x magit-status
+
+s        stage
+u        unstage
+c c      commit
+C-c C-c  zatwierdź message
+P p      push
+q        wyjdź
