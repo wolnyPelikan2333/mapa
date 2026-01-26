@@ -229,3 +229,65 @@ Powód:
 [PĘTLA: <NAZWA>] — ZAMKNIĘTA
 Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
 Powód:
+
+* PĘTLA: magit
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: 26-01-26 11:30
+:END:
+:END:
+
+** Zakres tej pętli
+- Co TU robię:
+  -instalacja magit przez package.el i pierwsze działania  
+- Czego TU świadomie NIE robię:
+  -
+
+** Treść pętli
+- -instalacja magit przez package.el i pierwsze działania
+
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  - gdy wykonam samodzielne działania
+
+** ZAMKNIĘCIE PĘTLI
+
+:PĘTLA: magit
+:CLOSED:yes
+:END: yes
+
+[PĘTLA: magit — ZAMKNIĘTA
+Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
+Powód: spełnione wymagania
+
+* PĘTLA:
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: 
+:END:
+:END:
+
+** Zakres tej pętli
+- Co TU robię:
+  -  
+- Czego TU świadomie NIE robię:
+  -
+
+** Treść pętli
+- 
+
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  - 
+
+** ZAMKNIĘCIE PĘTLI
+
+:PĘTLA:
+:CLOSED:
+:END:
+
+[PĘTLA: <NAZWA>] — ZAMKNIĘTA
+Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
+Powód:
