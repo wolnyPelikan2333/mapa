@@ -261,6 +261,117 @@ Powód:
 Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
 Powód: spełnione wymagania
 
+* PĘTLA: operation-repo
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: 27-01-26 19:15
+:END:27-01-26 22:40
+:END:
+
+** Zakres tej pętli
+- Co TU robię:stworzenie operation-repo
+  -  
+- Czego TU świadomie NIE robię:
+  -
+
+** Treść pętli
+- stworzenie repo na githubie
+- stworzenie katalogu operation-repo
+- stworzenie pliku README.org i dodanie do repo      
+- repo zsynchronizowane z githubem
+  
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  - repo zsynchronizowane z githubem
+
+** ZAMKNIĘCIE PĘTLI
+
+:PĘTLA: zamknięta
+:CLOSED:27-01-26
+:END:22:50
+
+[PĘTLA:operation-repo - zamknięta
+Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
+Powód:wykonane
+
+* PĘTLA: mapa-repo
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: 27-01-26 19:50
+:END:27-01-26
+:END:23:00
+
+** Zakres tej pętli
+- Co TU robię:
+  - stoworzenie i dodanie do repo pliku README.org
+- Czego TU świadomie NIE robię:
+  -
+
+** Treść pętli
+- stworzenie i dodanie do repo pliku README.org
+
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  - synchronizacja repo
+
+** ZAMKNIĘCIE PĘTLI
+
+:PĘTLA: mapa-repo
+:CLOSED:27-01-26
+:END:23:00
+
+[PĘTLA:mapa-repo — ZAMKNIĘTA
+Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
+Powód:wykonano
+
+* PĘTLA: podstawa-nixos repo
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: 27-01-26 2010
+:END:27-01-26
+:END:23:00
+
+** Zakres tej pętli
+- Co TU robię:
+  - Stworzenie repozytorium podstawa-nixos na githubie
+  - Stworzenie katalogu podstawa-nixos w katalogu domowym
+  - Przekopiowanie plików z /etc/nixos do katalogu podstawa-nixos w katalogu domowym
+  - Synchronizacja repozytoriów
+
+  ** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  - synchronizacja repo wykonana
+** ZAMKNIĘCIE PĘTLI
+
+:PĘTLA: mapa-repo
+:CLOSED:27-01-26
+:END:23:00
+
+
+
+* PĘTLA: test-sterile repo
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: 27-01-26 20:00
+:END:27-01-26
+:END:23:00
+
+** Zakres tej pętli
+- Co TU robię:
+  - stoworzenie i dodanie do repo pliku README.org
+
+** Treść pętli
+- stoworzenie i dodanie do repo pliku README.org
+  
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  - synchronizacja repo
+
+
 * PĘTLA:
 :PROPERTIES:
 :STATE: OPEN
@@ -287,6 +398,32 @@ Powód: spełnione wymagania
 :PĘTLA:
 :CLOSED:
 :END:
+
+[PĘTLA: <NAZWA>] — ZAMKNIĘTA
+Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
+Powód:
+
+* PĘTLA:
+:PROPERTIES:
+:STATE: OPEN
+:TYPE: POMYSŁ | DYSKUSJA | DZIAŁANIE
+:START: 
+:END:
+:END:
+
+** Zakres tej pętli
+- Co TU robię:
+  -  
+- Czego TU świadomie NIE robię:
+  -
+
+** Treść pętli
+- 
+
+** Kryterium zamknięcia
+- Pętla jest zamknięta, gdy:
+  - 
+
 
 [PĘTLA: <NAZWA>] — ZAMKNIĘTA
 Typ pętli: <POMYSŁ / DYSKUSJA / DZIAŁANIE>
