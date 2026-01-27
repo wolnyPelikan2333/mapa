@@ -1,0 +1,67 @@
+#+TITLE: mapa — repo orientacyjne
+#+AUTHOR: Michal Walewski
+
+* Czym jest to repo
+
+To repozytorium służy do **orientacji w systemie i w decyzjach**, a nie do jego budowania.
+
+Nie jest to repo:
+- systemowe,
+- operacyjne,
+- ani materiał do ćwiczeń.
+
+Jego rolą jest **utrzymanie sensu i kontekstu**:
+dlaczego system wygląda tak, a nie inaczej.
+
+* Jak z niego korzystać
+
+To repo nie jest czytane ciągle.
+Wraca się do niego wtedy, gdy:
+- coś przestaje być oczywiste,
+- pojawia się pytanie „po co to było?”,
+- trzeba odzyskać obraz całości.
+
+Nie służy do pracy pod presją ani w sytuacji awaryjnej.
+
+* Relacja do innych repozytoriów
+
+To repo **nie jest zależnością** żadnego innego repo.
+
+- repo systemowe  
+  Zawiera definicję systemu potrzebną do jego odtworzenia.
+  Działa bez tego repo.
+
+- repo operacyjne  
+  Zawiera pliki potrzebne na co dzień.
+  Nie tłumaczy sensu systemu.
+
+- repo nauki  
+  Zawiera eksperymenty i materiał do ćwiczeń.
+  Może być niespójne.
+
+Repo mapa **łączy te byty pojęciowo**, ale żadnym nie steruje.
+
+* Granica odpowiedzialności
+
+To repo odpowiada za:
+- kontekst,
+- motywacje,
+- decyzje architektoniczne,
+- mapę myślenia w czasie.
+
+Nie odpowiada za:
+- działanie systemu,
+- kompletność konfiguracji,
+- pliki potrzebne do pracy.
+
+* Stan domyślny
+
+Brak tego repo:
+- nie blokuje pracy,
+- nie blokuje odbudowy systemu.
+
+Jego obecność:
+- zmniejsza koszt powrotu do tematu,
+- porządkuje długoterminowe myślenie.
+
+To repo istnieje po to, aby **nie zgubić się w czasie**.
