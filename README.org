@@ -1,6 +1,18 @@
 #+TITLE: mapa — repo orientacyjne
 #+AUTHOR: Michal Walewski
 
+#+BEGIN_QUOTE
+NOTE (English):
+
+This repository is part of my personal system map.
+It exists to preserve context, decisions, and long-term reasoning
+behind my setup.
+
+It is not a ready-to-use template or a general guide.
+You are welcome to browse, reuse ideas, and adapt them to your own needs.
+#+END_QUOTE
+
+
 * Czym jest to repo
 
 To repozytorium służy do **orientacji w systemie i w decyzjach**, a nie do jego budowania.
