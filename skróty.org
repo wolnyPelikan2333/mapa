@@ -66,7 +66,7 @@ a zaczyna być buforem do operacji na nazwach.
 - C-x 0 :: zamknij aktualne okno
 - C-x 1 :: zostaw tylko jedno okno
 - C-x o :: przejdź do następnego okna
-
+- C-c w s :: zamienia panele miejscami
 ** Macra
 - C-x ( ::  Rozpocznij nagrywanie
 - C-x ) ::  Zakończ nagrywanie

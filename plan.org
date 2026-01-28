@@ -1,7 +1,17 @@
-#+title: Plan
+* LINKS
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+- [[file:/etc/nixos/nixos/configuration.nix][NixOS configuration]]
+- [[file:/etc/home/michal.nix][Home Manager]]
+- [[file:~/.emacs.d/init.el][Emacs init.el]]
+- [[file:~/mapa/skróty.org][Mapa – skróty]]
+- [[file:~/mapa][Mapa (Dired)]]
 
-* Kierunki
-* Do rozważenia
-* Pomysły
--formater do .nix
-* Później
+
+
+** NOW Check duplicate files
+   SCHEDULED: <2026-01-28 10:00>
+   
+** LATER Refactor plan structure
+
