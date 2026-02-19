@@ -1,0 +1,46 @@
+#+TITLE: Nabożeństwo Pierwszych Sobót Miesiąca
+#+AUTHOR: 
+#+DATE: 
+
+* Nabożeństwo Pierwszej Soboty – schemat jednej soboty
+
+** Intencja
+Wynagrodzenie Niepokalanemu Sercu Maryi.
+
+** Przygotowanie (przed sobotą)
+*** Spowiedź święta
+- W pierwszą sobotę miesiąca lub kilka dni wcześniej.
+- Intencja wynagrodzenia (wystarczy wewnętrzna).
+
+** Sobota – przebieg
+
+*** 1. Msza Święta i Komunia
+- Udział we Mszy Świętej.
+- Przyjęcie Komunii Świętej w intencji wynagrodzenia.
+- Chwila ciszy po Komunii.
+
+*** 2. Różaniec (jedna część)
+- Jedna pełna część różańca.
+- Odmówiona spokojnie, bez pośpiechu.
+- W kościele lub w domu.
+
+*** 3. 15 minut rozmyślania
+- Osobna modlitwa, niezależna od różańca.
+- Rozważanie jednej tajemnicy różańcowej.
+
+Struktura:
+- 2 minuty: wyciszenie i obecność.
+- 10 minut: rozważanie tajemnicy.
+- 3 minuty: modlitwa końcowa.
+
+*** 4. Zakończenie
+Krótka modlitwa:
+„Maryjo, przyjmij to jako wynagrodzenie.”
+
+* Rozważania – odnośniki
+
+- [[file:sobota/01-zwiastowanie.org][Sobota 1 – Zwiastowanie]]
+- [[file:sobota/02-ofiarowanie.org][Sobota 2 – Ofiarowanie Jezusa]]
+- [[file:sobota/03-pod-krzyzem.org][Sobota 3 – Maryja pod Krzyżem]]
+- [[file:sobota/04-zmartwychwstanie.org][Sobota 4 – Zmartwychwstanie]]
+- [[file:sobota/05-matka-kosciola.org][Sobota 5 – Maryja Matka Kościoła]]

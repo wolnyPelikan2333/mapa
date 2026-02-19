@@ -10,8 +10,8 @@
 
 
 
-** NOW Check duplicate files
-   SCHEDULED: <2026-01-28 10:00>
+** NOW Delete doom files
+   SCHEDULED: <02-02-2026 10:00>
    
 ** LATER Refactor plan structure
 

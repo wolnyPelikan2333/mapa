@@ -112,3 +112,53 @@ a zaczyna być buforem do operacji na nazwach.
 - C-h f :: pomoc dla funkcji
 - C-h v :: pomoc dla zmiennej
 - C-h m :: pomoc dla aktualnego trybu
+
+* VC (Version Control) — skróty natywne Emacsa
+
+** Założenie
+- VC jest *wbudowane* w Emacsa
+- działa niezależnie od Gita (Git to tylko backend)
+- obsługa odbywa się przez prefiks: C-x v
+
+** Prefiks
+- C-x v → Version Control
+
+** Najczęściej używane (codzienność)
+
+- C-x v v :: commit / check-in bieżącego pliku
+- C-x v = :: diff bieżącego pliku vs repo
+- C-x v l :: log (historia) bieżącego pliku
+- C-x v u :: revert — przywróć wersję z repo
+
+** Nawigacja po zmianach
+
+- C-x v n :: następna zmiana (next revision)
+- C-x v p :: poprzednia zmiana (previous revision)
+
+** Praca na repo (lekko)
+
+- C-x v d :: vc-dir — status repo (lista plików)
+
+** Dodawanie pliku do kontroli wersji
+
+- C-x v i :: add / register file in VC
+
+** Model mentalny
+- VC = plik w centrum
+- szybkie operacje
+- niski koszt poznawczy
+- Git „w tle”, nie jako temat
+
+** Uwaga
+- VC działa zawsze, jeśli Emacs widzi repo (.git)
+- skróty są natywne i stabilne (część Emacsa)
+
+** notatki-duchowe
+C-c c :: notatki-duchowe
+s  Skrótacja Pisma
+m  Medytacja (Lectio Divina)
+p  Pierwsza Sobota Miesiąca
+
+** Czytanie książek
+C-c a r  → czytam teraz
+C-c a b  → przeczytane

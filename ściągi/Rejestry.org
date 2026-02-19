@@ -1,0 +1,91 @@
+#+TITLE 🧠 EMACS — REJESTRY (ŚCIĄGA)
+#+AUTHOR Michal Walewski
+
+* 🔹 Co to jest rejestr
+
+- Rejestr = jedna rzecz pod jedną literą
+
+- cichy
+
+- deterministyczny
+
+- nie znika sam
+
+- nadpisywalny
+
+Myśl:
+
+„ta litera = to jedno znaczenie”
+
+* 🔹 Najważniejsze: POZYCJA W PLIKU
+Zapamiętaj miejsce (tu i teraz)
+C-x r SPC a
+
+Wróć do miejsca
+C-x r j a
+
+** 👉 Działa:
+
+- między plikami
+
+- między buforami
+
+- po dowolnej liczbie skoków
+
+* 🔹 Tekst (osobny schowek)
+Zapisz zaznaczenie
+C-x r s t
+
+Wstaw tekst
+C-x r i t
+
+✔️ Nie psuje kill-ring
+✔️ Idealne „na później”
+
+* 🔹 Plik / bufor
+Zapisz aktualny plik
+C-x r f p
+
+Otwórz zapisany plik
+C-x r j p
+
+
+Myśl:
+
+„p = ten plik, do którego wracam”
+
+* 🔹 Szybkie przypomnienie zawartości
+Lista rejestrów
+C-x r l
+
+Pokazuje:
+
+- literę
+
+- co tam jest (pozycja / tekst / plik)
+
+- Bez modyfikacji.
+
+* 🔹Nadpisywanie (ważne)
+
+Ten sam rejestr + nowy zapis = stare znika.
+
+To normalne.
+To jest „jeden aktywny sens”.
+
+* 🔹 Kiedy używać rejestrów
+
+✔️ skoki w złożonym pliku
+✔️ praca nieliniowa
+✔️ myślenie „wrócę tu”
+✔️ gdy nie chcesz tworzyć systemu
+
+❌ do list zadań
+❌ do archiwów
+❌ do porządkowania świata
+
+* 🔹 Mentalny skrót
+
+SPC → zapamiętaj
+
+j → skocz

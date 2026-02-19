@@ -1,4 +1,0 @@
-#+TITLE: Doom Emacs — ściąga
-
-Ten dokument został przeniesiony do:
-[[file:../ops/doom-emacs.org]]

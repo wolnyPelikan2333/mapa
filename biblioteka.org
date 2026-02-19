@@ -1,0 +1,112 @@
+#+title: Biblioteka
+#+todo: TODO READING DONE
+
+* Książki
+
+** TODO Silmarillion
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 1977
+:GENRE: fantasy
+:SERIES: Legendarium
+:ERA: Pierwsza Era
+:END:
+
+[[file:notatki/silmarillion.org][Notatki]]
+[[file:cytaty/silmarillion.org][Cytaty]]
+
+** TODO Beren i Lúthien
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 2017
+:GENRE: fantasy
+:SERIES: Legendarium
+:ERA: Pierwsza Era
+:END:
+
+[[file:notatki/beren-luthien.org][Notatki]]
+[[file:cytaty/beren-luthien.org][Cytaty]]
+
+** TODO Dzieci Húrina
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 2007
+:GENRE: fantasy
+:SERIES: Legendarium
+:ERA: Pierwsza Era
+:END:
+
+[[file:notatki/dzieci-hurina.org][Notatki]]
+[[file:cytaty/dzieci-hurina.org][Cytaty]]
+
+** TODO Upadek Gondolinu
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 2018
+:GENRE: fantasy
+:SERIES: Legendarium
+:ERA: Pierwsza Era
+:END:
+
+[[file:notatki/upadek-gondolinu.org][Notatki]]
+[[file:cytaty/upadek-gondolinu.org][Cytaty]]
+
+** TODO Niedokończone opowieści
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 1982
+:GENRE: fantasy
+:SERIES: Legendarium
+:ERA: różne
+:END:
+
+[[file:notatki/niedokonczone-opowiesci.org][Notatki]]
+[[file:cytaty/niedokonczone-opowiesci.org][Cytaty]]
+
+** TODO Hobbit, czyli tam i z powrotem
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 1937
+:GENRE: fantasy
+:SERIES: Legendarium
+:ERA: Trzecia Era
+:END:
+
+[[file:notatki/hobbit.org][Notatki]]
+[[file:cytaty/hobbit.org][Cytaty]]
+
+** TODO Władca Pierścieni — Drużyna Pierścienia
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 1954
+:GENRE: fantasy
+:SERIES: Władca Pierścieni
+:ERA: Trzecia Era
+:END:
+
+[[file:notatki/druzyna-pierscienia.org][Notatki]]
+[[file:cytaty/druzyna-pierscienia.org][Cytaty]]
+
+** TODO Władca Pierścieni — Dwie wieże
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 1954
+:GENRE: fantasy
+:SERIES: Władca Pierścieni
+:ERA: Trzecia Era
+:END:
+
+[[file:notatki/dwie-wieze.org][Notatki]]
+[[file:cytaty/dwie-wieze.org][Cytaty]]
+
+** TODO Władca Pierścieni — Powrót króla
+:PROPERTIES:
+:AUTHOR: J.R.R. Tolkien
+:YEAR: 1955
+:GENRE: fantasy
+:SERIES: Władca Pierścieni
+:ERA: Trzecia Era
+:END:
+
+[[file:notatki/powrot-krola.org][Notatki]]
+[[file:cytaty/powrot-krola.org][Cytaty]]

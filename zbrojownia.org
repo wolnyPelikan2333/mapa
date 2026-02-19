@@ -1,0 +1,23 @@
+* %<%Y-%m-%d %H:%M>
+
+Źródło:
+- [ ] Różaniec
+- [ ] Medytacja / Lectio
+- [ ] Cisza
+- [ ] Eucharystia
+- [ ] Inne: __________
+
+Strzały / poruszenia:
+- 
+- 
+- 
+
+Cisza:
+- [ ] tak
+- [ ] nie
+- [ ] częściowo
+
+Uwagi techniczne (opcjonalnie, bez sensu duchowego):
+- (np. „za dużo”, „rozproszenie”, „zmęczenie”)
+
+(status zostawiamy pusty)

@@ -1,0 +1,91 @@
+* Bookmarks + Projects — ściąga robocza (Emacs)
+
+** Założenie
+- *Project* = mapa pracy nad dużym zadaniem
+- *Bookmark* = znacznik (pinezka) na tej mapie
+- Bookmark nie mówi *co robić*, tylko *gdzie wrócić*
+
+Celem bookmarków jest:
+- skrócić powrót do pracy
+- zachować orientację
+- zdjąć ciężar z pamięci
+
+Bez automatyki. Bez systemu. Bez presji.
+
+** Typy bookmarków (jedna konwencja)
+
+*** K: — Kod
+- konkretne miejsce w pliku
+- tam, gdzie faktycznie coś edytuję
+- wracam, żeby kontynuować robotę
+
+Przykłady nazw:
+- K: dashboard use-package
+- K: parser main loop
+- K: init.el hooks
+
+Myśl przewodnia:
+„Chcę wrócić dokładnie TU.”
+
+*** C: — Konfiguracja
+- miejsca decyzyjne
+- wpływają na zachowanie całości
+- rzadziej zmieniane, często czytane
+
+Przykłady nazw:
+- C: emacs startup
+- C: nixos services
+- C: flake inputs
+
+Myśl przewodnia:
+„Tu zapadają decyzje globalne.”
+
+*** M: — Myślenie
+- kontekst, notatki, stan głowy
+- żeby nie odtwarzać wszystkiego od zera
+- zero presji, zero TODO
+
+Przykłady nazw:
+- M: emacs workflow — stan
+- M: projekt-x — plan mentalny
+- M: chaos / pytania / obserwacje
+
+Myśl przewodnia:
+„Tu jest kontekst, nie zadanie.”
+
+** Skróty (natywne, bez pakietów)
+
+Dodaj bookmark:
+- C-x r m
+
+Skok do bookmarka:
+- C-x r b
+
+Lista bookmarków:
+- C-x r l
+
+** Gdzie są zapisane
+- bookmarki są natywne (bookmark.el)
+- zapis na dysku (domyślnie):
+  ~/.emacs.d/bookmarks
+- przetrwają restart Emacsa i systemu
+
+** Zasada użycia (jedyna)
+Zadaj sobie pytanie:
+- „Czy będę chciał tu wrócić bez szukania?”
+
+Jeśli tak → bookmark
+Jeśli nie → nie
+
+** Zasada prostoty
+- jeden mechanizm (bookmark.el)
+- jedna konwencja nazw (opcjonalna)
+- brak automatyki
+- brak integracji na siłę
+
+Jeśli system zaczyna przeszkadzać — jest do uproszczenia.
+
+** Relacja z projects
+- project = obszar pracy (katalog)
+- bookmark = konkretne miejsce w tym obszarze
+- kilka bookmarków na projekt w zupełności wystarczy

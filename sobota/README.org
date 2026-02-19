@@ -1,0 +1,87 @@
+#+TITLE: Pierwsze Soboty – minimum operacyjne
+#+AUTHOR:
+#+DATE:
+
+* Po co jest ten katalog
+
+Ten katalog służy do zapisywania tego, co pojawia się podczas
+rozważania tajemnic różańca w nabożeństwie Pierwszych Sobót miesiąca.
+
+To nie jest dokumentacja nabożeństwa.
+To jest zapis ulotnych myśli, obrazów i zdań,
+które pojawiają się w konkretnym dniu.
+
+* Zasada główna
+
+- Jedna Pierwsza Sobota miesiąca = jeden plik
+- Jedna tajemnica = jeden plik
+- Każdy plik ma konkretną datę (DD-MM-YYYY)
+
+Pliki nie są poprawiane po czasie.
+To są ślady, nie teksty do dopracowania.
+
+* Struktura katalogów
+
+- radosne/     – zapisy Pierwszych Sobót (część radosna)
+- bolesne/     – zapisy Pierwszych Sobót (część bolesna)
+- chwalebne/   – zapisy Pierwszych Sobót (część chwalebna)
+- swiatla/     – zapisy Pierwszych Sobót (tajemnice światła)
+
+- wzorce/      – pliki stałe (punkty wyjścia, pytania)
+  - radosne/
+  - bolesne/
+  - chwalebne/
+  - swiatla/
+
+* Jak korzystać (krok po kroku)
+
+** 1. Raz w miesiącu – utwórz nowy plik
+
+Przykład:
+~/mapa/sobota/radosne/07-02-2026-zwiastowanie.org
+
+** 2. Wklej prosty szablon
+
+#+BEGIN_SRC org
+#+TITLE: Pierwsza Sobota – DD-MM-YYYY – NAZWA TAJEMNICY
+#+DATE: DD-MM-YYYY
+
+[[file:../wzorce/radosne/zwiastowanie.org][punkt wyjścia]]  ; opcjonalnie
+
+- 
+- 
+#+END_SRC
+
+To wystarczy.
+
+** 3. Zapisz tylko to, co przyszło
+
+- jedno słowo
+- jedno zdanie
+- obraz
+- albo nic
+
+Brak zapisu też jest zapisem.
+
+* Czego świadomie NIE robimy
+
+- nie trzymamy wielu miesięcy w jednym pliku
+- nie robimy indeksów ani statystyk
+- nie poprawiamy zapisów po czasie
+- nie „porządkujemy” doświadczenia
+
+System ma nie przeszkadzać.
+
+* Pliki wzorcowe
+
+Pliki w katalogu wzorce/:
+- nie mają dat
+- zawierają punkty wyjścia, pytania, cytaty
+- służą tylko jako pomoc przy wejściu w tajemnicę
+
+Nie kopiujemy ich treści do plików z datą.
+
+* Jedno zdanie na koniec
+
+Jeśli po miesiącu nic nie pamiętasz, ale plik istnieje,
+to system zadziałał.
