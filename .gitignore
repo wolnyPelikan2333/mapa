@@ -1,0 +1,25 @@
+# ===== Emacs temp / autosave =====
+*~
+#*
+.#*
+*.elc
+
+# ===== Org export =====
+*.html
+*.tex
+*.pdf
+*.aux
+*.log
+*.out
+
+# ===== System =====
+.DS_Store
+Thumbs.db
+
+# ===== Backup / tmp =====
+*.tmp
+*.bak
+*.old
+
+# ===== Emacs locks =====
+.#*

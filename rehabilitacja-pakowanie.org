@@ -1,0 +1,42 @@
+#+title: Rehabilitacja — lista pakowania
+#+date: 26-02-2026
+
+* Dokumenty
+- [ ] dowód osobisty
+- [ ] skierowanie
+- [ ] dokumentacja medyczna
+- [ ] karta NFZ / ubezpieczenie
+
+* Ubrania
+- [ ] bielizna
+- [ ] skarpetki
+- [ ] piżama
+- [ ] dres / wygodne ubrania
+- [ ] bluza
+- [ ] kurtka
+
+* Rehabilitacja
+- [ ] strój sportowy
+- [ ] buty sportowe
+- [ ] klapki
+- [ ] ręcznik
+- [ ] woda / bidon
+
+* Higiena
+- [ ] szczoteczka do zębów
+- [ ] pasta
+- [ ] mydło / żel
+- [ ] szampon
+- [ ] dezodorant
+
+* Elektronika
+- [ ] telefon
+- [ ] ładowarka
+- [ ] słuchawki
+- [ ] powerbank
+
+* Inne
+- [ ] leki
+- [ ] okulary
+- [ ] książka
+- [ ] notatnik

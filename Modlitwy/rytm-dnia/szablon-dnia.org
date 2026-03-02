@@ -1,0 +1,36 @@
+* %(format-time-string "%d-%m-%Y %A")
+
+** Poranek (7:00–8:00)
+- [ ] jutrznia
+- [ ] różaniec
+- [ ] śniadanie
+- [ ] plan dnia
+  
+** Rano (8:00–10:00)
+- [ ] medytacja
+- [ ] czytanie duchowne
+- [ ] różaniec
+
+** Przedpołudnie (10:00–12:30)
+- [ ] msza święta / spacer
+- [ ] drobne prace domowe
+
+** Południe (12:30)
+- [ ] obiad
+- [ ] czytanie Pisma św.
+
+** Popołudnie (13:00–17:30)
+- [ ] drobne prace domowe
+- [ ] różaniec
+
+** Wczesny wieczór (17:30–18:30)
+- [ ] kolacja
+- [ ] nieszpory
+
+** Wieczór (18:30–22:00)
+- [ ] różaniec
+- [ ] czytanie duchowne / cisza
+
+** Noc (22:00–7:00)
+- [ ] sen
+- [ ] modlitwa nocna

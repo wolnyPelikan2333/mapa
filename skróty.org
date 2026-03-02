@@ -88,7 +88,11 @@ a zaczyna być buforem do operacji na nazwach.
 - C-y   :: wklej (yank)
 - C-/   :: cofnij (undo)
 - C-g   :: przerwij / anuluj operację
-
+- C-x C-o :: usuń puste linie (kursor w pustej linii)
+- M-x flush-lines :: usuń puste linie
+- M-x flush-lines RET ^$ RET :: usuń puste linie interaktywnie
+- M-x delete-blank-lines :: usuń puste linie
+        
 ** Wyszukiwanie
 - C-s :: wyszukiwanie w przód
 - C-r :: wyszukiwanie wstecz
@@ -162,3 +166,12 @@ p  Pierwsza Sobota Miesiąca
 ** Czytanie książek
 C-c a r  → czytam teraz
 C-c a b  → przeczytane
+
+* Magit - git w emacs
+M-x magit-status
+s :: stage pliku
+c c :: wpis commita
+C-c C-c :: commit
+pP :: push
+FF :: pull
+S  :: add all 
