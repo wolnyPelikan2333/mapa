@@ -9,7 +9,7 @@
 - C-x k   :: zamknij bufor
 - M-[     :: początek bufora (zamiennik M-<)
 - M-]     :: koniec bufora (zamiennik M->)
-
+  
 ** Dired
 *** Nawigacja
 n / p        → następna / poprzednia linia
@@ -21,8 +21,8 @@ g            → odśwież bufor (re-read directory)
 m            → oznacz plik → wybieram zbiór → C/R/!/… → robię coś z wybranym zbiorem
 u            → usuń oznaczenie
 U            → usuń wszystkie oznaczenia
-* t          → odwróć zaznaczenie
-* s          → zaznacz wszystkie
+t            → odwróć zaznaczenie
+s            → zaznacz wszystkie
 Myśl: najpierw oznaczasz, potem robisz akcję
 
 *** Operacje na plikach

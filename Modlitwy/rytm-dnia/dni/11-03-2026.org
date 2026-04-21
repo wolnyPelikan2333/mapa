@@ -1,13 +1,13 @@
-
+11-03-2026 Wednesday
 
 ** Poranek (7:00–8:00)
-- [ ] jutrznia
+- [x] jutrznia
 - [ ] różaniec
-- [ ] śniadanie
+- [x] śniadanie
 - [ ] plan dnia
   
 ** Rano (8:00–10:00)
-- [ ] medytacja
+- [x] medytacja
 - [ ] czytanie duchowne
 - [ ] różaniec
 
@@ -16,7 +16,7 @@
 - [ ] drobne prace domowe
 
 ** Południe (12:30)
-- [ ] obiad
+- [x] obiad
 - [ ] czytanie Pisma św.
 
 ** Popołudnie (13:00–17:30)

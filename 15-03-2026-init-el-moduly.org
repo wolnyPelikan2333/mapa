@@ -1,0 +1,148 @@
+#+title: Init.el – kolejność modułów
+#+date: 15-03-2026
+
+* Cel struktury init.el
+
+Plik init.el pełni rolę **loadera modułów**.
+Cała konfiguracja znajduje się w katalogu:
+
+~/.emacs.d/lisp/
+
+Dzięki temu:
+
+- init.el jest krótki
+- moduły są logicznie podzielone
+- konfigurację łatwo utrzymywać i rozwijać
+
+
+* Kolejność ładowania modułów
+
+Kolejność w init.el jest świadoma i odzwierciedla zależności systemu.
+
+** 1. System
+
+Podstawy działania Emacsa.
+
+- system
+- packages
+- line-numbers
+
+Odpowiadają za:
+- konfigurację systemową
+- pakiety
+- podstawy edycji
+
+
+** 2. Org
+
+Podział Orga na moduły funkcjonalne.
+
+- org-core
+- org-capture
+- org-agenda-config
+- org-utils
+
+Odpowiadają za:
+- podstawy org-mode
+- capture
+- agenda
+- rozszerzenia funkcjonalne
+
+
+** 3. UI
+
+Konfiguracja interfejsu.
+
+- ui
+
+Zawiera:
+- font
+- theme
+- ido
+- display rules
+- dired
+- clipboard
+
+
+** 4. Workflow
+
+Funkcje związane z codziennym użyciem systemu.
+
+- devotional
+- domowe
+
+Zawiera:
+- system modlitwy
+- generowanie plików dnia
+- workflow osobisty
+
+
+** 5. Narzędzia
+
+Dodatkowe moduły funkcjonalne.
+
+- pdf
+- history
+- nix
+- javascript
+- buffer-macros
+
+Są to narzędzia pomocnicze używane w różnych miejscach.
+
+
+* Zasada organizacji
+
+init.el zawiera tylko:
+
+- loader modułów
+- dashboard
+- launcher
+- funkcje startowe
+
+Cała logika znajduje się w:
+
+~/.emacs.d/lisp/
+
+
+* Struktura katalogów
+
+~/.emacs.d
+
+init.el
+
+lisp/
+
+- system.el
+- packages.el
+- line-numbers.el
+
+- org-core.el
+- org-capture.el
+- org-agenda-config.el
+- org-utils.el
+
+- ui.el
+
+- devotional.el
+- domowe.el
+
+- pdf.el
+- history.el
+- nix.el
+- javascript.el
+- buffer-macros.el
+
+
+* Zasada dalszego rozwoju
+
+Jeśli init.el zaczyna rosnąć:
+
+→ tworzymy nowy moduł w lisp/
+
+Przykład:
+
+home.el  
+notes.el  
+writing.el
+
+init.el powinien pozostać **czytelną mapą systemu**.

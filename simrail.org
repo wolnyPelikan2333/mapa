@@ -1,0 +1,38 @@
+#+TITLE: SimRail - Podręcznik Maszynisty
+#+STARTUP: showall indent
+
+* EN57 (Jednostka)
+** PRZYGOTOWANIE SKŁADU [/]
+- [ ] Wejdź do pociągu
+- [ ] Włącz baterie i odblokuj przekaźnik różnicowy (Szafa wewnątrz składu)
+- [ ] Zajmij miejsce w kabinie maszynisty (Klawisz: [[1]])
+- [ ] Aktywuj rozrząd (Zasilanie kabiny) (Klawisz: [[J]])
+- [ ] Aktywuj zasilanie radiotelefonu
+- [ ] Włącz radiotelefon i ustaw kanał (Klawisz: [[Shift + R]] i mysz)
+- [ ] Podnieś tylny pantograf (Klawisz: [[O]])
+- [ ] Ustaw nawrotnik w przód (Klawisz: [[W]])
+- [ ] Zamknij wyłącznik szybki (Klawisz: [[M]])
+- [ ] Skasuj czuwak (Klawisz: [[Spacja]])
+- [ ] Włącz przetwornicę (Klawisz: [[X]])
+- [ ] Włącz sprężarkę (Klawisz: [[C]])
+- [ ] Wyluzuj hamulec ręczny (Korba po lewej - kręć myszą)
+- [ ] Ustaw zawór hamulca w pozycję jazdy (Klawisz: [[;]] - odhamowanie)
+- [ ] Oświetlenie zewnętrzne (Reflektory):
+  - [ ] Włącz reflektor prawy
+  - [ ] Przejdź do drugiej kabiny -> Włącz reflektor lewy
+  - [ ] Wróć do pierwszej kabiny -> Włącz górny i lewy (Klawisz: [[H]])
+
+** JAZDA I OBSŁUGA [/]
+- [ ] Zgłoś gotowość do jazdy (Radio: [[Shift + Tab]])
+- [ ] **RUSZANIE:**
+  - [ ] Ustaw hamulec w pozycję odhamowania (Klawisz: [[Num 9]])
+  - [ ] Zadajnik jazdy na pozycję 1 (Klawisz: [[Num +]])
+- [ ] **ZATRZYMANIE:**
+  - [ ] Zadajnik na pozycję 0 (Klawisz: [[Num -]])
+  - [ ] Użyj hamulca zasadniczego (Klawisz: [[Num 3]])
+- [ ] **SYGNAŁY:**
+  - [ ] Sygnał Rp1 "Baczność" przy wskaźnikach W6a (Klawisze: [[H]] i [[J]] - syrena)
+- [ ] **OBSŁUGA PASAŻERÓW:**
+  - [ ] Otwórz drzwi LEWE (Klawisz: [[I]]) lub PRAWE (Klawisz: [[P]])
+  - [ ] Zamknij drzwi (Klawisz: [[O]])
+  - [ ] Sygnał odjazdu / dzwonek (Klawisz: [[Num Backspace]])
