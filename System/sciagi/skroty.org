@@ -23,6 +23,7 @@ u            → usuń oznaczenie
 U            → usuń wszystkie oznaczenia
 t            → odwróć zaznaczenie
 s            → zaznacz wszystkie
+
 Myśl: najpierw oznaczasz, potem robisz akcję
 
 *** Operacje na plikach
@@ -59,6 +60,10 @@ C-c C-k      → anuluj
 To jest moment, w którym:
 Dired przestaje być „menedżerem plików”,
 a zaczyna być buforem do operacji na nazwach.
+
+** Bookmarks
+- C-x r m - dodaj zakładkę otwartego pliku
+- M-x bookmark-delete - usuń zakładkę  
 
 ** Okna (splity)
 - C-x 3 :: split lewo–prawo (vertical)

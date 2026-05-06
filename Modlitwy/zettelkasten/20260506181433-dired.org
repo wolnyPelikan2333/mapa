@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       49e4360a-8bfd-4815-aae7-99423d57414a
+:END:
+#+title: dired
+#+date: [2026-05-06 śro 18:14]
+Naprawa dired przez użycie Dirvish i dodanie skrótu C-c d.

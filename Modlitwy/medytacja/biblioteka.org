@@ -7,10 +7,10 @@
 :LAST_MEDITATION: [2026-04-23 czw]
 :END:
 ** DONE Łk 1,39-56
-** TODO Łk 1,57-80
-** TODO Łk 2,1-7
-** TODO Łk 2,8-20
-** TODO Łk 2,21-40
+** DONE Łk 1,57-80
+** DONE Łk 2,1-7
+** DONE Łk 2,8-20
+** DONE Łk 2,21-40
 ** TODO Łk 2,41-51
 ** TODO Łk 3,1-9
 ** TODO Łk 3,10-18

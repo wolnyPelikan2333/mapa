@@ -1,0 +1,9 @@
+[[id:49e4360a-8bfd-4815-aae7-99423d57414a][dired]]:PROPERTIES:
+:ID:       4e34ddb4-f3ba-481a-a205-f188da8d4e64
+:END:
+#+title: PierwszaNotatka
+#+date: [2026-05-06 śro 17:08]
+Naprawa dired przez użycie Dirvish i dodanie skrótu C-c d.
+Naprawa vezterm przez dodanie skrótu C-c t.
+Uruchomienie Org-Roam przez stworzenie folderu zettelkasten i dodanie skrótu C-c nf(tworzy notatke) i C-c C-c (by zapisać)
+
